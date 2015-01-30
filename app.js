@@ -34,6 +34,11 @@ app.use(function(req, res, next) {
     next(err);
 });
 
+//app.get('/editprofile', index.editprofile);
+//app.get('/communities', index.communities);
+//app.get('/chatbox', index.chatbox);
+//app.get('/settings', index.settings);
+
 // error handlers
 
 // development error handler
