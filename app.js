@@ -11,7 +11,7 @@ var handlebars = require('express-handlebars')
 //var monk = require('monk');
 //var db = monk('localhost:27017/anonnomore');
 
-var mysql = require('mysql');
+/*var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -29,7 +29,7 @@ var query = connection.query(
         console.log('result: ', result)
     });
 
-connection.end();
+connection.end();*/
 
 
 var routes = require('./routes/index');
