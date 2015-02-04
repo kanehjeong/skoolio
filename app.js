@@ -6,6 +6,32 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var handlebars = require('express-handlebars')
 
+//Database
+//var mongo = require('mongodb');
+//var monk = require('monk');
+//var db = monk('localhost:27017/anonnomore');
+
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'anonnomore',
+    port: 3306
+
+});
+
+connection.connect();
+
+var query = connection.query(
+    'SELECT * from Users u', function(err, result, fields) {
+        if (err) throw err;
+        console.log('result: ', result)
+    });
+
+connection.end();
+
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -33,11 +59,6 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-
-//app.get('/editprofile', index.editprofile);
-//app.get('/communities', index.communities);
-//app.get('/chatbox', index.chatbox);
-//app.get('/settings', index.settings);
 
 // error handlers
 

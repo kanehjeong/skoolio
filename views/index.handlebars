@@ -1,97 +1,136 @@
-<!doctype html>
-
-<html>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 <head>
-	<title>HCI Project Portfolio</title>	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-	<link href="/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="/stylesheets/bootstrap.css" rel="stylesheet">
-	<link href="/stylesheets/bootstrap-theme.css" rel="stylesheet">  
+    <meta charset="UTF-8" />
+    <title>AnonNoMore Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon.jpg">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
 </head>
-
 <body>
-	<div class="container">
-		<!-- h1 through h6 are headers. The higher the number, the smaller the header -->
-		<!-- p means paragraph -->
-		<div class="jumbotron">
-			<h1>AnonNoMore!</h1>
-			<p></p>
-		</div>
+    <div class="container">
 
-		<ul>
-			<p>GOING TO INCLUDE THESE AS MENU ITEMS</p>
-		    <li><a href="/editprofile">Edit Profile</a></li>
-		    <li><a href="/communities">Communities</a></li>
-		    <li><a href="/chatbox">Chatbox</a></li>
-		    <li><a href="/settings">Settings</a></li>
-		    <li><a href="">Log Out</a></li>
-		</ul>
+        <div class="page-header">
+            <h1>AnonNoMore!
+                <small>Collaborative Projects for Students</small>
+            </h1>
+            <p>Subtext...fill in</p>
+        </div>
+        <div id="loginbox" class="row">
+            <div class="col-md-12">
+                <div class="pr-wrap">
+                    <div class="pass-reset">
+                        <label>
+                            Enter the email you signed up with</label>
+                        <input type="email" placeholder="Email" />
+                        <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+                    </div>
+                </div>
+                <div class="wrap">
+                    <p class="form-title">
+                        Sign In</p>
+                    <form class="login">
+                        <input type="text" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                        <input type="submit" value="Sign In" class="btn btn-success btn-sm" />
+                        <div class="remember-forgot">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" />
+                                            Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 forgot-pass-content">
+                                    <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                    Don't have an account! 
+                                    <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                        Sign up Here
+                                    </a>
+                                </div>
+                            </div>
+                        </div>    
+                    </form>
+                </div>
+            </div>
+        </div>
 
-<div id="container_demo" >
-    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
-    <a class="hiddenanchor" id="toregister"></a>
-    <a class="hiddenanchor" id="tologin"></a>
-    <div id="wrapper">
-        <div id="login" class="animate form">
-            <form  action="mysuperscript.php" autocomplete="on"> 
-                <h1>Log in</h1> 
-                <p> 
-                    <label for="username" class="uname" data-icon="u" > Your email or username </label>
-                    <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
-                </p>
-                <p> 
-                    <label for="password" class="youpasswd" data-icon="p"> Your password </label>
-                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
-                </p>
-                <p class="keeplogin"> 
-                    <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
-                    <label for="loginkeeping">Keep me logged in</label>
-                </p>
-                <p class="login button"> 
-                    <input type="submit" value="Login" /> 
-                </p>
-                <p class="change_link">
-                    Not a member yet ?
-                    <a href="#toregister" class="to_register">Join us</a>
-                </p>
-            </form>
-        </div>
- 
-        <div id="register" class="animate form">
-            <form  action="mysuperscript.php" autocomplete="on"> 
-                <h1> Sign up </h1> 
-                <p> 
-                    <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
-                </p>
-                <p> 
-                    <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
-                </p>
-                <p> 
-                    <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
-                </p>
-                <p> 
-                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
-                </p>
-                <p class="signin button"> 
-                    <input type="submit" value="Sign up"/> 
-                </p>
-                <p class="change_link">  
-                    Already a member ?
-                    <a href="#tologin" class="to_register"> Go and log in </a>
-                </p>
-            </form>
-        </div>
-         
+        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <p class="form-title">Sign In</p>
+                    <div style="float:right; font-size: 85%; position: relative; top:-10px">Have an Account? <a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In Here.</a></div>
+                </div>  
+                <div class="panel-body" >
+                    <form id="signupform" class="form-horizontal" role="form">
+                        
+                        <div id="signupalert" style="display:none" class="alert alert-danger">
+                            <p>Error:</p>
+                            <span></span>
+                        </div>
+                            
+                        <div class="form-group">
+                            <label for="email" class="col-md-3 control-label">Email</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="email" placeholder="Email Address">
+                            </div>
+                        </div>
+                            
+                        <div class="form-group">
+                            <label for="firstname" class="col-md-3 control-label">First Name</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-md-3 control-label">Password</label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" name="passwd" placeholder="Password">
+                            </div>
+                        </div>
+                            
+                        <div class="form-group">
+                            <label for="icode" class="col-md-3 control-label">Invitation Code</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="icode" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <br />
+                                       
+                            <div class="col-md-offset-3 col-md-9">
+                                <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+
+                            </div>
+                        </div>
+                        
+                         
+                        </div>               
+                    </form>
+                </div>
+            </div>
+        </div>    
     </div>
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="/javascripts/bootstrap.js"></script>
-	<script src="/javascripts/bootstrap.min.js"></script>
-	<script src="/javascripts/npm.js"></script>
 </body>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/npm.js"></script>
 </html>

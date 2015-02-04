@@ -22,4 +22,8 @@ router.get('/settings', function(req, res, next) {
 	res.render('settings', { title: 'Express' });
 });
 
+router.get('/signup', function(req, res, next) {
+	res.render('signup', { title: 'Express' });
+});
+
 module.exports = router;
