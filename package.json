@@ -1,19 +1,19 @@
 {
   "name": "Anon_No_More",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "monk": "*",
-    "body-parser": "~1.10.2",
+    "body-parser": "^1.10.2",
     "cookie-parser": "~1.3.3",
+    "cool-ascii-faces": "^1.3.3",
     "debug": "~2.1.1",
-    "express": "~4.11.1",
-    "morgan": "~1.5.1",
-    "serve-favicon": "~2.2.0",
+    "express": "^4.11.2",
     "express-handlebars": "*",
-    "mysql": "*"
+    "morgan": "~1.5.1",
+    "pg": "^4.2.0",
+    "serve-favicon": "~2.2.0"
   }
 }
