@@ -1,79 +1,75 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-<head>
-    <meta charset="UTF-8" />
-    <title>AnonNoMore Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon.jpg">
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-</head>
-<body>
-    <div class="container">
-
-        <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <p class="form-title">Sign Up</p>
-                </div>  
-                <div class="panel-body" align="center">
-                    <form id="signupform" class="form-horizontal" role="form">
-
-                        <div id="signupalert" style="display:none" class="alert alert-danger">
-                            <p>Error:</p>
-                            <span></span>
-                        </div>
+    <head>
+        <meta charset="UTF-8" />
+        <title>AnonNoMore Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="images/favicon.jpg">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <p class="form-title">Sign Up</p>
+                    </div>
+                    <div class="panel-body" align="center">
+                        <form id="signupform" class="form-horizontal" role="form">
+                            <div id="signupalert" style="display:none" class="alert alert-danger">
+                                <p>Error:</p>
+                                <span></span>
+                            </div>
                             
-                        <div class="form-group">
-                            <label for="email" class="col-md-3 control-label">Email</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="email" placeholder="Email Address">
+                            <div class="form-group">
+                                <label for="email" class="col-md-3 control-label">Email</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="email" placeholder="Email Address" required="required">
+                                </div>
                             </div>
-                        </div>
                             
-                        <div class="form-group">
-                            <label for="firstname" class="col-md-3 control-label">First Name</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                            <div class="form-group">
+                                <label for="firstname" class="col-md-3 control-label">First Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="firstname" placeholder="First Name" required="required">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastname" class="col-md-3 control-label">Last Name</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                            <div class="form-group">
+                                <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="lastname" placeholder="Last Name" required="required">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="col-md-3 control-label">Password</label>
-                            <div class="col-md-9">
-                                <input type="password" class="form-control" name="passwd" placeholder="Password">
+                            <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Password</label>
+                                <div class="col-md-9">
+                                    <input type="password" class="form-control" name="passwd" placeholder="Password" required="required">
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-
+                            <div class="form-group">
+                                <br />
+                                
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i>
+                                    Sign Up</button>
+                                </div>
+                            </div>
                             <br />
-                                       
-                            <div class="col-md-offset-3 col-md-9">
-                                <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i>
-                                Sign Up</button>
-
+                            <div style="font-size: 85%; position: relative; top:-10px">
+                                Have an Account?
+                                <a id="signinlink" href="/">Sign In Here.</a>
                             </div>
-                        </div>  
-
-                        <br />
-                        <div style="font-size: 85%; position: relative; top:-10px">
-                            Have an Account?
-                            <a id="signinlink" href="/">Sign In Here.</a>
-                        </div>           
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>    
-    </div>
-</body>
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="/js/index.js"></script>
-<script src="/js/bootstrap.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/npm.js"></script>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/npm.js"></script>
 </html>
