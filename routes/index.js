@@ -26,4 +26,8 @@ router.get('/signup', function(req, res, next) {
 	res.render('signup', { title: 'Express' });
 });
 
+router.get('/homepage', function(req, res, next) {
+	res.render('homepage', { title: 'Express' });
+});
+
 module.exports = router;
