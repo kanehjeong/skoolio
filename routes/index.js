@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET Pages */
 router.get('/', function(req, res, next) {
 	res.render('index', { title: 'Express' });
 });
@@ -14,8 +14,8 @@ router.get('/communities', function(req, res, next) {
 	res.render('communities', { title: 'Express' });
 });
 
-router.get('/chatbox', function(req, res, next) {
-	res.render('chatbox', { title: 'Express' });
+router.get('/curr_projects', function(req, res, next) {
+	res.render('curr_projects', { title: 'Express' });
 });
 
 router.get('/settings', function(req, res, next) {
