@@ -6,30 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var handlebars = require('express-handlebars')
 
-var pg = require('pg');
-var connectionString = process.env.DATABASE_URL;
-
-/*pg.connect(connectionString, function(err, client) {
-
-  if(err) {
-    return console.error('Error fetching client from pool. Failed to connect with DB');
-  }
-    
-  var query = client.query('SELECT * FROM Users');
-});*/
-
-// setup postgres
-/*var pg = require('pg').native
-  , connectionString = process.env.DATABASE_URL || 
-        'postgres://nclwslgpysdhkd:-Q3QPebtF6youIEwDf1TEfGBig@ec2-23-21-235-249.compute-1.amazonaws.com:5432/d6ihltg24bu9n2'
-  , client
-  , query;
-
-client = new pg.Client(connectionString);
-client.connect();
-query = client.query('SELECT * FROM Users');
-query.on('end', function() { client.end(); });*/
-
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
