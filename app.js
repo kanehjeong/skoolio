@@ -5,10 +5,26 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var handlebars = require('express-handlebars')
+var mongoose = require('mongoose');
 
-
+// Declare all routes here
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var ep = require('./routes/editprofile');
+var hp = require('./routes/homepage');
+var su = require('./routes/signup');
+
+// Connect to the Mongo database, whether locally or on Heroku
+var local_database_name = 'skoolio';
+var local_database_uri  = 'mongodb://localhost/' + local_database_name
+var database_uri = process.env.MONGOLAB_URI || local_database_uri
+
+// Check if mongoose connected and if not, throw error
+mongoose.connect(database_uri);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', function(callback) {
+  console.log("DATABASE CONNECTED");
+}); 
 
 var app = express();
 
@@ -18,15 +34,19 @@ app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+// app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Apply all routes 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/', ep);
+app.use('/', hp);
+app.use('/', su);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

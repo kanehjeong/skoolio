@@ -1,5 +1,5 @@
 {
-  "name": "Anon_No_More",
+  "name": "Skoolio",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -23,7 +23,7 @@
     "morgan": "~1.5.1",
     "serve-favicon": "~2.2.0",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "3.8"
   },
 
   "engines": {
