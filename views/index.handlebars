@@ -11,12 +11,6 @@
     </head>
     <body>
         <div class="container">
-            <!--<div class="page-header">
-                <h1>AnonNoMore!
-                <small>Collaborative Projects for Students</small>
-                </h1>
-                <p>Subtext...fill in</p>
-            </div>-->
             <div id="loginbox" class="row">
                 <div class="col-md-12">
                     <div class="pr-wrap">
@@ -30,10 +24,10 @@
                     <div class="wrap">
                         <p class="form-title">
                         Sign In</p>
-                        <form action="/homepage" class="login">
-                            <input type="text" placeholder="Email" required="required"/>
-                            <input type="password" placeholder="Password" required="required" />
-                            <input type="submit" value="signin" class="btn btn-success btn-sm" href="/homepage"/>
+                        <form class="login" role="form" method="post">
+                            <input type="text" name="email" placeholder="Email" required="required"/>
+                            <input type="password" name="password" placeholder="Password" required="required" />
+                            <input type="submit" value="signin" class="btn btn-success btn-sm" />
 
                             <div class="remember-forgot">
                                 <div class="row">
