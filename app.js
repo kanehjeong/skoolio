@@ -6,12 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var handlebars = require('express-handlebars')
 var mongoose = require('mongoose');
+var session = require('client-sessions');
 
 // Declare all routes here
 var routes = require('./routes/index');
-var ep = require('./routes/editprofile');
-var hp = require('./routes/homepage');
-var su = require('./routes/signup');
+var editprofile = require('./routes/editprofile');
+var homepage = require('./routes/homepage');
+var signup = require('./routes/signup');
+var logout = require('./routes/logout');
 
 // Connect to the Mongo database, whether locally or on Heroku
 var local_database_name = 'skoolio';
@@ -41,11 +43,46 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+    cookieName: 'session',
+    secret: 'ejwortjoq2ij30948nl23qnk5r2j3nk5nq23ll',
+    duration: 30*60*1000,
+    activeDuration: 5*60*1000,
+    httpOnly: true, 
+    secure: true,   
+    ephemeral: true
+}));
+
 // Apply all routes 
 app.use('/', routes);
-app.use('/', ep);
-app.use('/', hp);
-app.use('/', su);
+app.use('/', editprofile);
+app.use('/', homepage);
+app.use('/', signup);
+app.use('/', logout);
+
+
+/*// middleware function for checking session
+app.use(function(req, res, next) {
+    if (req.session && req.session.user) {
+
+        User.findOne({ email: req.session.user.email }, function(err, user) {
+        if (user) {
+            console.log("CURRENT USER: " + req.user.fname);
+            req.user = user;
+            delete req.user.password; // delete the password from the session
+            req.session.user = user;  //refresh the session value
+            res.locals.user = user;
+        }
+
+        // finishing processing the middleware and run the route
+        next();
+        });
+
+    } else {
+        next();
+    }
+}); */
+
 
 
 // catch 404 and forward to error handler
