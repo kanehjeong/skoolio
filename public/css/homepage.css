@@ -10,7 +10,7 @@
     top: -3px;
     right: 0;
 }
-.page-header { position: relative; }
+.page-header { position: relative;}
 .reviews {
     color: #555;    
     font-weight: bold;
@@ -233,10 +233,12 @@ input[type="file"]{
   }
 }
 body {
+  width:100%;
+  overflow-x:hidden;
   margin: 0px;
   padding: 0px;
 }
 
 .container {
-  margin-left:300px;
+  /*margin-left:300px;*/
 }
