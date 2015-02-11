@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
 
     // attempt to authenticate user
-    User.getAuthenticated(req.body.email, req.body.password, function(err, user, reason) {
+    User.getAuthenticated(req.body.username, req.body.password, function(err, user, reason) {
         if (err) {
             throw err;
         }

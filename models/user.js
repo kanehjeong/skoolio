@@ -10,6 +10,7 @@ var mongoose = require('mongoose'),
 
 var UserSchema = new Schema({
     email: { type: String, required: true, index: { unique: true } },
+    username: { type: String, required: true, index: { unique: true } },
     fname: { type: String, required: true },
     lname: { type: String, required: true },
     password: { type: String, required: true },
@@ -76,8 +77,8 @@ var reasons = UserSchema.statics.failedLogin = {
     MAX_ATTEMPTS: 2
 };
 
-UserSchema.statics.getAuthenticated = function(email, password, cb) {
-    this.findOne({ email: email }, function(err, user) {
+UserSchema.statics.getAuthenticated = function(username, password, cb) {
+    this.findOne({ username: username }, function(err, user) {
         if (err) return cb(err);
 
         // make sure the user exists
