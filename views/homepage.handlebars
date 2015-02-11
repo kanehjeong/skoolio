@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
     <head>
         <meta charset="UTF-8" />
-        <title>AnonNoMore Homepage</title>
+        <title>Skoolio Homepage</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="shortcut icon" href="images/favicon.jpg">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -11,87 +11,76 @@
         <link rel="stylesheet" type="text/css" href="css/homepage.css">
     </head>
     <body>
-        <div class="nav-side-menu">
-            <div class="brand">Navigation Menu</div>
-            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-            
-            <div class="menu-list">
-                
-                <ul id="menu-content" class="menu-content collapse out">
-                    <!--<li>
-                        <a href="#">
-                            <i class="fa fa-dashboard fa-lg"></i>
-                        </a>
-                    </li>-->
-                    
-                    <!-- FOR PERHAPS LATER USE, instead of collapsed, use collapsed active -->
-                    <li  data-toggle="collapse" data-target="#products" class="collapsed">
-                        <a href="/homepage"><i class="fa fa-gift fa-lg"></i> Homepage </a>
-                    </li>
-                    <!--<ul class="sub-menu collapse" id="products">
-                        <li class="active"><a href="#">CSS3 Animation</a></li>
-                        <li><a href="#">General</a></li>
-                        <li><a href="#">Buttons</a></li>
-                        <li><a href="#">Tabs & Accordions</a></li>
-                        <li><a href="#">Typography</a></li>
-                        <li><a href="#">FontAwesome</a></li>
-                        <li><a href="#">Slider</a></li>
-                        <li><a href="#">Panels</a></li>
-                        <li><a href="#">Widgets</a></li>
-                        <li><a href="#">Bootstrap Model</a></li>
-                    </ul>-->
-                    <li data-toggle="collapse" data-target="#service" class="collapsed">
-                        <a href="/editprofile"><i class="fa fa-globe fa-lg"></i> Edit Profile <!--<span class="arrow"></span>--></a>
-                    </li>
-                    <ul class="sub-menu collapse" id="service">
-                        <!--<li>New Service 1</li>
-                        <li>New Service 2</li>
-                        <li>New Service 3</li>-->
+        <nav class="navbar navbar-inverse sidebar" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Navigation</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/homepage">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                        <li ><a href="/editprofile">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+                        <li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+
+                        
+                        <!-- TODO: CHANGE LOGOUT TO POST REQ -->
+                        <li ><a id="nav-logout" href="/logout">Logout<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>
+                        <!--<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                            <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li> -->
                     </ul>
-                    <li data-toggle="collapse" data-target="#new" class="collapsed">
-                        <a href="/settings"><i class="fa fa-car fa-lg"></i> Settings </a>
-                    </li>
-                    <ul class="sub-menu collapse" id="new">
-                        <!--<li>New New 1</li>
-                        <li>New New 2</li>
-                        <li>New New 3</li>-->
-                    </ul>
-                    <li>
-                        <a href="curr_projects">
-                            <i class="fa fa-user fa-lg"></i> Current Projects
-                        </a>
-                    </li>
-                    <!--<li>
-                        <a href="#">
-                            <i class="fa fa-users fa-lg"></i> Logout
-                        </a>
-                    </li>-->
-                </ul>
+                </div>
             </div>
-        </div>
+        </nav>
+
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1" id="logout">
                     <!-- Header -->
                     <div class="page-header">
-                        <h3 class="reviews">AnonNoMore!</h3>
-                        <div class="logout">
 
-                            <form role="form" method="post" action="logout">
-                                <button type="submit" class="btn btn-default btn-circle text-uppercase"> Logout
-                                <span class="glyphicon glyphicon-off"></span>
-                                </button>
-                            </form>
+                    {{#each projects}}
+                        <h3 class="reviews">Skoolio</h3>
+                        <p>Title: {{title}}</p>
+                        <p>Description: {{description}}</p>
+                        <p>Roles: {{roles}}</p>
+                        <p>Created At: {{createdAt}}</p>
+                        <p>Created By: {{createdBy}}</p>
+                    {{/each}}    
 
-                        </div>
                     </div>
                     <div class="comment-tabs">
                         <!-- Tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Projects</h4></a></li>
-                            <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Post Project</h4></a></li>
-                            <li><a href="#account-settings" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Search Projects</h4></a></li>
+                            <li class="active">
+                                <a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Projects</h4></a>
+                            </li>
+                            <li>
+                                <a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Post Project</h4></a>
+                            </li>
+                            <li>
+                                <a href="#account-settings" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Search Projects</h4></a>
+                            </li>
                         </ul>
+                        
                         <div class="tab-content">
                             <!-- Projects Tab -->
                             <div class="tab-pane active" id="comments-logout">
@@ -131,106 +120,53 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <!-- Second project -->
-                                    <li class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kurafire/128.jpg" alt="profile">
-                                        </a>
-                                        <div class="media-body">
-                                            <div class="well well-lg">
-                                                <h4 class="media-heading text-uppercase reviews">Personal Website</h4>
-                                                <ul class="media-date text-uppercase reviews list-inline">
-                                                    <li class="dd">22</li>
-                                                    <li class="mm">09</li>
-                                                    <li class="aaaa">2014</li>
-                                                </ul>
-                                                <p class="media-comment">
-                                                Looking for: Web Developer
-                                                </p>
-                                                <a class="btn btn-info btn-circle text-uppercase" data-toggle="collapse" href="#replyTwo" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
-                                            </div>
-                                        </div>
-                                        <div class="collapse" id="replyTwo">
-                                            <ul class="media-list">
-                                                <li class="media media-replied">
-                                                    <div class="media-body">
-                                                        <div class="well well-lg">
-                                                            <p class="media-comment">
-                                                            -project description <br />
-                                                            -project description <br />
-                                                            -project description <br />
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <!-- Third comment -->
-                                    <li class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/lady_katherine/128.jpg" alt="profile">
-                                        </a>
-                                        <div class="media-body">
-                                            <div class="well well-lg">
-                                                <h4 class="media-heading text-uppercase reviews">Workout App</h4>
-                                                <ul class="media-date text-uppercase reviews list-inline">
-                                                    <li class="dd">22</li>
-                                                    <li class="mm">09</li>
-                                                    <li class="aaaa">2014</li>
-                                                </ul>
-                                                <p class="media-comment">
-                                                Looking for: UX/UI Designer
-                                                </p>
-                                                <a class="btn btn-info btn-circle text-uppercase" data-toggle="collapse" href="#replyThree" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
-                                            </div>
-                                        </div>
-                                        <div class="collapse" id="replyThree">
-                                            <ul class="media-list">
-                                                <li class="media media-replied">
-                                                    <div class="media-body">
-                                                        <div class="well well-lg">
-                                                            <p class="media-comment">
-                                                            -project description <br />
-                                                            -project description <br />
-                                                            -project description <br />
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
                                 </ul>
                             </div>
                             <!-- Post Project Tab -->
                             <div class="tab-pane" id="add-comment">
-                                <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+                                <br />
+                                <form method="post" class="form-horizontal" id="commentForm" role="form">
                                     <div class="form-group">
-                                        <label for="uploadMedia" class="col-sm-2 control-label">Project Name</label>
+                                        <label for="title" class="col-sm-2 control-label">Project Name</label>
                                         <div class="col-sm-10">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="uploadMedia" id="uploadMedia">
+                                                <input type="text" class="form-control" name="title" id="project-name">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email" class="col-sm-2 control-label">Description</label>
+                                        <label for="project-type" class="col-sm-2 control-label">Type of Project</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
+                                            <input type="radio" name="type" value="webapp" required="required">Web Application
+                                            <br />
+                                            <input type="radio" name="type" value="android">Android Application
+                                            <br />
+                                            <input type="radio" name="type" value="iphone">iPhone Application
+                                            <br />
+                                            <input type="radio" name="type" value="research">Research
+                                            <br />
+                                            <input type="radio" name="type" value="engineer">Engineer
+                                            <br />
+                                            <input type="radio" name="type" value="other">Other
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="rolesWanted" class="col-sm-2 control-label">Roles Wanted</label>
+                                        <label for="description" class="col-sm-2 control-label">Description</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" name="description" id="project-description" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="roles" class="col-sm-2 control-label">Roles Wanted</label>
                                         <div class="col-sm-10">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="rolesWanted" id="rolesWanted">
+                                                <input type="text" class="form-control" name="roles" id="project-roles">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> <a href="/homepage">Summit Project</a></button>
+                                            <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitProject">Post Project</button>
                                         </div>
                                     </div>
                                 </form>
@@ -272,8 +208,9 @@
             </div>
         </div>
     </body>
+
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="/js/homepage.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/npm.js"></script>

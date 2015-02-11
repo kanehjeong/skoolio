@@ -18,7 +18,6 @@ router.get('/signup', function(req, res, next) {
 
 /* POST */
 router.post('/signup', function(req, res, next) {
-	console.log("Starting POST req and adding: " + req.body.fname);
 
 	var newUser = new User(req.body);
 

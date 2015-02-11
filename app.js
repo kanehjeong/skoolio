@@ -22,13 +22,13 @@ var database_uri = process.env.MONGOLAB_URI || local_database_uri
 
 // Check if mongoose connected and if not, throw error
 mongoose.connect(database_uri);
-var db = mongoose.connection;
+var db = module.exports = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function(callback) {
   console.log("DATABASE CONNECTED");
 }); 
 
-var app = express();
+var app = module.exports = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -83,7 +83,10 @@ app.use(function(req, res, next) {
     }
 }); */
 
-
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
