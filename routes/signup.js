@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var User = require('../models/user');
+var Profile = require('../models/profile');
+
 var mongoose = require('mongoose');
 
 var app = express();
@@ -18,6 +20,18 @@ router.get('/signup', function(req, res, next) {
 
 /* POST */
 router.post('/signup', function(req, res, next) {
+
+	console.log("NAMEEEE" + req.body.fname);
+
+	//var Profile = new Profile({
+
+	//});
+
+	/*(newProfile.save(function(err) {
+		if(err) {
+			return res.send(err);
+		}
+	});*/
 
 	var newUser = new User(req.body);
 
