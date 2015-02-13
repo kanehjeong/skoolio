@@ -15,6 +15,7 @@ var homepage = require('./routes/homepage');
 var signup = require('./routes/signup');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
+var messages = require('./routes/messages');
 
 // Connect to the Mongo database, whether locally or on Heroku
 var local_database_name = 'skoolio';
@@ -61,6 +62,7 @@ app.use('/', homepage);
 app.use('/', signup);
 app.use('/', login);
 app.use('/', logout);
+app.use('/', messages);
 
 
 /*// middleware function for checking session
