@@ -6,7 +6,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    
+    overflow-y: hidden;
 }
 .form-signin input[type="text"] {
     margin-bottom: 5px;
@@ -29,7 +29,7 @@ body {
     box-sizing: border-box;
 }
 .vertical-offset-100 {
-    padding-top: 100px;
+    padding-top: 50px;
 }
 .img-responsive {
 display: block;

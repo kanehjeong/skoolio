@@ -18,16 +18,27 @@
                             <div class="panel-heading">                                
                                 <div class="row-fluid user-row">
                                     <img src="/images/templogo.png" class="img-responsive" alt="Conxole Admin"/>
-                                </div>
+                                    <p>On Skoolio you can,
+                                        <ul>
+                                            <li>Collaborate and gain experience with others by working on projects together!</li>
+                                            <li>Post your projects and find teammates!</li>
+                                            <li>Find projects that you are interested in!</li>
+                                        </ul>
+                                    </p>
+                            </div>
                             </div>
                             <div class="panel-body">
-                                <form accept-charset="UTF-8" role="form" class="form-signin">
+                                <form action="/login" accept-charset="UTF-8" role="form" method="get" class="form-signin">
                                     <fieldset>
                                         <label class="panel-login">
                                             <div class="login_result"></div>
                                         </label>
                                         <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Login »">
                                         <br />
+                                    </fieldset>    
+                                </form>        
+                                <form action="/signup" accept-charset="UTF-8" role="form" method="get" class="form-signin">
+                                    <fieldset>
                                         <input class="btn btn-lg btn-success btn-block" type="submit" id="createAccount" value="Create Account »">
                                     </fieldset>
                                 </form>
