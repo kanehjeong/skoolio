@@ -10,7 +10,10 @@ var session = require('client-sessions');
 
 // Declare all routes here
 var routes = require('./routes/index');
+var profile = require('./routes/profile');
 var editprofile = require('./routes/editprofile');
+var projects = require('./routes/projects');
+var projectDetails = require('./routes/project-details');
 var homepage = require('./routes/homepage');
 var sendmessage = require('./routes/sendmessage');
 var signup = require('./routes/signup');
@@ -58,13 +61,15 @@ app.use(session({
 
 // Apply all routes 
 app.use('/', routes);
+app.use('/', profile);
 app.use('/', editprofile);
 app.use('/', homepage);
-//app.use('/', sendmessage);
 app.use('/', signup);
 app.use('/', login);
 app.use('/', logout);
 app.use('/', messages);
+app.use('/', projects);
+app.use('/', projectDetails);
 
 
 /*// middleware function for checking session
