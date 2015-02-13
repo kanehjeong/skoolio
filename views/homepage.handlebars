@@ -11,7 +11,7 @@
         <link rel="stylesheet" type="text/css" href="css/homepage.css">
     </head>
     <body>
-        <nav class="navbar navbar-inverse sidebar" role="navigation">
+        <nav id="the-navbar" class="navbar navbar-default navbar-inverse sidebar" role="navigation">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -74,15 +74,11 @@
                                 <!-- Projects Tab -->
                                 <div class="tab-pane active" id="comments-logout">
                                     <ul class="media-list">
-
                                         <br />
-
                                         {{#each projects}}
                                         <!-- Project Posts -->
                                         <li class="media">
-                                            <a class="pull-left" href="#">
-                                                <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
-                                            </a>
+                                            
                                             <div class="media-body">
                                                 <div class="well well-lg">
                                                     <h4 class="media-heading text-uppercase reviews">{{title}}</h4>
@@ -103,9 +99,7 @@
                                                         <div class="media-body">
                                                             <div class="well well-lg">
                                                                 <p class="media-comment">
-                                                                -project description <br />
-                                                                -project description <br />
-                                                                -project description <br />
+                                                                {{description}}
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -114,8 +108,6 @@
                                             </div>
                                         </li>
                                         {{/each}}
-
-
                                     </ul>
                                 </div>
                                 <!-- Post Project Tab -->
@@ -167,14 +159,9 @@
                                         </div>
                                     </form>
                                 </div>
-
-
                                 <!-- Search Projects Tab -->
-
-
                                 <div class="tab-pane" id="account-settings">
                                     <form action="#" method="post" class="form-horizontal" id="accountSetForm" role="form">
-
                                         <br />
                                         <div class="form-group">
                                             <label for="name" class="col-sm-2 control-label">Project Name</label>
@@ -205,14 +192,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="page-header text-center">
-                    <h3 class="reviews"></h3>
-                </div>
             </div>
-        </body>
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="/js/homepage.js"></script>
-        <script src="/js/bootstrap.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/npm.js"></script>
-    </html>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/js/homepage.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/npm.js"></script>
+</html>
