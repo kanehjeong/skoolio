@@ -12,6 +12,7 @@ var session = require('client-sessions');
 var routes = require('./routes/index');
 var editprofile = require('./routes/editprofile');
 var homepage = require('./routes/homepage');
+var sendmessage = require('./routes/sendmessage');
 var signup = require('./routes/signup');
 var logout = require('./routes/logout');
 
@@ -57,6 +58,7 @@ app.use(session({
 app.use('/', routes);
 app.use('/', editprofile);
 app.use('/', homepage);
+//app.use('/', sendmessage);
 app.use('/', signup);
 app.use('/', logout);
 
