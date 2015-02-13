@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 
 var ProjectSchema = new Schema({
     title: { type: String, required: true, index: { unique: true } },
-    roles: { type: [String] },
+    type: { type: String },
+    roles: { type: String },
     createdBy: { type: String, required: true },
     description: { type: String, required: true },
     createdAt: { type: Date, expires: '7d' }
