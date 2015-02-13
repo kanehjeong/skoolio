@@ -13,6 +13,7 @@ var routes = require('./routes/index');
 var editprofile = require('./routes/editprofile');
 var homepage = require('./routes/homepage');
 var signup = require('./routes/signup');
+var login = require('./routes/login');
 var logout = require('./routes/logout');
 
 // Connect to the Mongo database, whether locally or on Heroku
@@ -58,6 +59,7 @@ app.use('/', routes);
 app.use('/', editprofile);
 app.use('/', homepage);
 app.use('/', signup);
+app.use('/', login);
 app.use('/', logout);
 
 
