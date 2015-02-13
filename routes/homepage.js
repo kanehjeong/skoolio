@@ -16,6 +16,11 @@ router.get('/homepage', function(req, res, next) {
 	    // lookup the user in the DB by pulling their email from the session
 	    User.findOne({ email: req.session.user.email }, function (err, user) {
 
+	    	if(err) {
+	    		res.send(err);
+	    		return;
+	    	}
+
 			// if the user isn't found in the DB, reset the session info and
 	        // redirect the user to the login page
 			if (!user) {
@@ -28,6 +33,10 @@ router.get('/homepage', function(req, res, next) {
 	        	res.locals.user = user;
 
 				Project.find({}, function(err, projects) {
+					if(err) {
+						res.send(err);
+						return;
+					}
 
 					// tie all projects to a key 
 					var pMap = {};
