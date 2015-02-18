@@ -12,6 +12,12 @@ $('#add-role-form').click(function(e) {
 
 });
 
+$("#project-description").on('input propertychange paste', function() {
+    var length = $("#project-description").val().length;
+    var remaining = $("#project-description").attr("maxlength") - length;
+    $("#characters_remaining").html(remaining)
+});
+
 function htmlbodyHeightUpdate(){
 		var height3 = $( window ).height();
 		var height1 = $('.nav').height()+50;

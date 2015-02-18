@@ -171,3 +171,8 @@ a.morelink {
     margin: 10px;
 }
 
+/* width and height of project description */
+#project-description {
+	width: 100%;
+}
+

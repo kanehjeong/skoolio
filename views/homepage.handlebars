@@ -99,6 +99,7 @@
                                                     <div class="more">
                                                         <label>Description:</label> {{description}}
                                                     </div>
+                                                    <br />
                                                     <a href="#{{_id}}" class="btn btn-info btn-circle text-uppercase" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
                                                 </div>
                                             </div>
@@ -153,9 +154,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="description" class="col-sm-2 control-label">Description</label>
+
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" name="description" id="project-description" rows="5"></textarea>
+                                                <textarea name="description" id="project-description" maxlength="320" rows="5"></textarea>
+                                                <h6 class="pull-left">
+                                                    <span id="characters_remaining">320</span>
+                                                    characters remaining
+                                                </h6>
                                             </div>
+
                                         </div>
                                         <div class="form-group">
                                             <label for="roles" class="col-sm-2 control-label">Roles Wanted</label>
@@ -215,5 +222,4 @@
     <script src="/js/homepage.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/npm.js"></script>
 </html>
