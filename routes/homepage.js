@@ -32,7 +32,7 @@ router.get('/homepage', function(req, res, next) {
 	        	// expose the user to the template
 	        	res.locals.user = user;
 
-				Project.find({}, function(err, projects) {
+				/*Project.find({}, function(err, projects) {
 					if(err) {
 						res.send(err);
 						return;
@@ -40,10 +40,24 @@ router.get('/homepage', function(req, res, next) {
 
 					// tie all projects to a key 
 					var pMap = {};
+					
 					pMap["projects"] = projects;
 
 				    res.render('homepage', pMap);  
-				});
+				});*/
+
+	    		Project.find({}).sort({'createdAt' : 'desc'}).exec(function(err, projects) {
+					
+					if(err) {
+						res.send(err);
+						return;
+					}
+
+					var pMap = {};
+					pMap["projects"] = projects;
+
+					res.render('homepage', pMap);
+	    		});
 	    	}
 	    });
 		
