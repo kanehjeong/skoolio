@@ -12,8 +12,8 @@ var session = require('client-sessions');
 var routes = require('./routes/index');
 var profile = require('./routes/profile');
 var editprofile = require('./routes/editprofile');
-var projects = require('./routes/projects');
-var projectDetails = require('./routes/project_details');
+var user_projects = require('./routes/user_projects');
+var project_details = require('./routes/project_details');
 var homepage = require('./routes/homepage');
 var messages = require('./routes/messages');
 var signup = require('./routes/signup');
@@ -68,8 +68,8 @@ app.use('/', signup);
 app.use('/', login);
 app.use('/', logout);
 app.use('/', messages);
-app.use('/', projects);
-app.use('/', projectDetails);
+app.use('/', user_projects);
+app.use('/', project_details);
 
 app.use(function(req,res,next){
     req.db = db;

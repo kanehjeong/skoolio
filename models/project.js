@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 
 var ProjectSchema = new Schema({
 	createdBy: { type: String, required: true },
+	createdByID: { type: String, required: true },
 	createdAt: { type: Date },
     title: { type: String, required: true },
     type: { type: String, required: true },
