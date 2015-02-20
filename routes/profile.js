@@ -32,8 +32,7 @@ router.get('/profile', function(req, res, next) {
 	        	// expose the user to the template
 	        	res.locals.user = user;
 
-	        	console.log("ID IS: " + req.session.user.id);
-				Profile.find({ "_id": req.session.user.id }, function(err, profile) {
+				Profile.find({ "_id": req.session.user._id }, function(err, profile) {
 					if(err) {
 						res.send(err);
 						return;

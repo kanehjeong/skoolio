@@ -8,7 +8,7 @@ var Project = require('../models/project');
 var db = mongoose.connection;
 
 /* GET */
-router.get('/homepage', function(req, res, next) {
+router.get('/interested/:id', function(req, res, next) {
 
 	// Check if session exists
 	if (req.session && req.session.user) {
@@ -31,18 +31,11 @@ router.get('/homepage', function(req, res, next) {
 	        
 	        	// expose the user to the template
 	        	res.locals.user = user;
+	        	var projectID = req.params.id;
 
-	    		Project.find({}).sort({'createdAt' : 'desc'}).exec(function(err, projects) {
-					
-					if(err) {
-						res.send(err);
-						return;
-					}
+	    		Project.findOne({ '_id' : projectID }).exec(function(err, project) {
 
-					var pMap = {};
-					pMap["projects"] = projects;
-
-					res.render('homepage', pMap);
+					res.render('interested', project);
 	    		});
 	    	}
 	    });
@@ -53,23 +46,9 @@ router.get('/homepage', function(req, res, next) {
 });
 
 /* POST */
-router.post('/homepage', function(req, res, next) {
+router.post('/interested/:id', function(req, res, next) {
 
-	// set the created by property to be current user
-	req.body.createdBy = req.session.user.fname + " " + req.session.user.lname;
-	req.body.createdByID = req.session.user._id;
-
-	var newProject = new Project(req.body);
-
-	newProject.save(function(err) {
-
-		if(err) {
-			return res.send(err);
-		}
-		else {
-			res.redirect("/homepage");
-		}
-	});
+	res.render('notification_sent');
 });
 
 module.exports = router;

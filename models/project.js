@@ -9,7 +9,7 @@ var ProjectSchema = new Schema({
 	createdAt: { type: Date },
     title: { type: String, required: true },
     type: { type: String, required: true },
-    roles: { type: String, required: true },
+    roles: { type: [String], required: true },
     description: { type: String, required: true },
     url: { type: String }
 });

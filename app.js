@@ -14,6 +14,7 @@ var profile = require('./routes/profile');
 var editprofile = require('./routes/editprofile');
 var user_projects = require('./routes/user_projects');
 var project_details = require('./routes/project_details');
+var interested = require('./routes/interested');
 var homepage = require('./routes/homepage');
 var messages = require('./routes/messages');
 var signup = require('./routes/signup');
@@ -63,6 +64,7 @@ app.use(session({
 app.use('/', routes);
 app.use('/', profile);
 app.use('/', editprofile);
+app.use('/', interested);
 app.use('/', homepage);
 app.use('/', signup);
 app.use('/', login);
