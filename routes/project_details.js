@@ -17,4 +17,17 @@ router.get('/project_details/:id', function(req, res, next) {
 
 });
 
+router.get('/project_details/:id/delete', function(req, res, next) {
+	var projectID = req.params.id;
+
+	Project.findOne({ "_id": projectID }).remove().exec( function(err) {
+		if(err) {
+			console.log(err);
+		}
+
+		res.redirect('../../user_projects');
+	});
+
+});
+
 module.exports = router;
