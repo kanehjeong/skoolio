@@ -1,21 +1,24 @@
+var moment = require('moment');
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProjectSchema = new Schema({
-    title: { type: String, required: true, index: { unique: true } },
-    type: { type: String },
-    roles: { type: String },
-    createdBy: { type: String, required: true },
+	createdBy: { type: String, required: true },
+	createdAt: { type: Date },
+    title: { type: String, required: true },
+    type: { type: String, required: true },
+    roles: { type: String, required: true },
     description: { type: String, required: true },
-    createdAt: { type: Date, expires: '7d' }
+    url: { type: String }
 });
 
 
 // When creating a new project, get current date
 ProjectSchema.pre('save', function(next){
-	now = new Date();
-	this.createdAt = now;
+	var now = new Date();
 
+	this.createdAt = now;
 	next();
 });
 
