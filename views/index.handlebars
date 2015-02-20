@@ -11,42 +11,78 @@
     </head>
 
     <body>
-        <div class="container">
-                <div class="row vertical-offset-100">
-                    <div class="col-md-4 col-md-offset-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">                                
-                                <div class="row-fluid user-row">
-                                    <img src="/images/templogo.png" class="img-responsive" alt="Conxole Admin"/>
-                                    <p>On Skoolio you can,
-                                        <ul>
-                                            <li>Collaborate and gain experience with others by working on projects together!</li>
-                                            <li>Post your projects and find teammates!</li>
-                                            <li>Find projects that you are interested in!</li>
-                                        </ul>
-                                    </p>
-                            </div>
-                            </div>
-                            <div class="panel-body">
-                                <form action="/login" accept-charset="UTF-8" role="form" method="get" class="form-signin">
-                                    <fieldset>
-                                        <label class="panel-login">
-                                            <div class="login_result"></div>
-                                        </label>
-                                        <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Login »">
-                                        <br />
-                                    </fieldset>    
-                                </form>        
-                                <form action="/signup" accept-charset="UTF-8" role="form" method="get" class="form-signin">
-                                    <fieldset>
-                                        <input class="btn btn-lg btn-success btn-block" type="submit" id="createAccount" value="Create Account »">
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
+            <div class="site-wrapper">
+              <div class="site-wrapper-inner">
+                <div class="cover-container">
+                  <div class="masthead clearfix">
+                    <div class="inner">
+                      <!--<h3 class="masthead-brand">Cover</h3>
+
+                      <ul class="nav masthead-nav">
+                        <li class="active">
+                          <a href="http://bootsnipp.com/iframe/g6GWQ" target=
+                          "_blank">View full screen</a>
+                        </li>
+
+                        <li>
+                          <a href="#">Features</a>
+                        </li>
+
+                        <li>
+                          <a href="#">Contact</a>
+                        </li>
+                      </ul> -->
                     </div>
+                  </div>
+
+                  <div class="inner cover">
+                    <h1 class="cover-heading">Skoolio</h1>
+
+                    <p class="lead">
+                        Collaborate and gain experience with others by working on projects together! Post your projects and find teammates! Find projects that you are interested in!
+                    </p>
+
+                    <br />
+                    
+                    <form action="/login" accept-charset="UTF-8" role="form" method="get" class="form-signin">
+                        <fieldset>
+                            <label class="panel-login">
+                                <div class="login_result"></div>
+                            </label>
+                            <input class="btn btn-lg btn-info" type="submit" id="login" value="Login »">
+                            <br />
+                        </fieldset>    
+                    </form>        
+                    <br />
+                    <form action="/signup" accept-charset="UTF-8" role="form" method="get" class="form-signin">
+                        <fieldset>
+                            <input class="btn btn-lg btn-info" type="submit" id="createAccount" value="Create Account »">
+                        </fieldset>
+                    </form>
+                  </div>
+
+                  <div class="mastfoot">
+                    <div class="inner">
+                      <!-- Validation -->
+
+                      <!-- <p><a href=
+                      "http://validator.w3.org/check?uri=http%3A%2F%2Fbootsnipp.com%2Fiframe%2Fg6GWQ"
+                      target="_blank"><small>HTML</small><sup>5</sup></a></p>
+                      
+                      
+                      <p><a href=
+                      "https://github.com/twbs/bootlint"
+                      target="_blank"><small>Checked with Bootlint</small></a></p>          
+                  
+                      
+
+                      <p>© 2014 Your Name ~ <a href=
+                      "http://getbootstrap.com/">Bootstrap</a></p> -->
+                    </div>
+                  </div>
                 </div>
             </div>
+        </div>
     </body>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="/js/index.js"></script>
