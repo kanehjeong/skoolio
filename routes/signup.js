@@ -21,11 +21,9 @@ router.get('/signup', function(req, res, next) {
 /* POST */
 router.post('/signup', function(req, res, next) {
 
-	console.log("NAMEEEE" + req.body.fname);
+	/*var Profile = new Profile({
 
-	var Profile = new Profile({
-
-	});
+	});*/
 
 	/*(newProfile.save(function(err) {
 		if(err) {
