@@ -54,7 +54,27 @@ router.get('/homepage', function(req, res, next) {
 					}
 
 					var pMap = {};
-					pMap["projects"] = projects;
+					pMap["projects"] = [];
+
+					// For each project, fix the dates
+					projects.forEach(function(project) {
+						var date = project.createdAt.toString();
+
+						// Hardcoding which part of date wanted....need to refactor eventually
+
+						project.createdAt = date.substring(4,24);
+						console.log(project.createdAt);
+						pMap["projects"].push(project);
+					});
+
+					//var pMap = {};
+					//pMap["projects"] = projects;
+
+					var obj = [ {"name": "Kane"}, {"name" : "Bob", "key": "value"} ];
+					console.log(obj[0].name);
+					obj[0].name = "Koolio";
+					console.log(obj[0].name);
+
 
 					res.render('homepage', pMap);
 	    		});

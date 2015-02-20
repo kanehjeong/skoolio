@@ -1,3 +1,6 @@
+/** 
+ * Responsible for dynamically adding role forms
+ **/
 $('#add-role-form').click(function(e) {
 	//e.preventDefault();
 
@@ -12,6 +15,9 @@ $('#add-role-form').click(function(e) {
 
 });
 
+/** 
+ * Set char limit on descriptions and show the current # of chars left
+ **/
 $("#project-description").on('input propertychange paste', function() {
     var length = $("#project-description").val().length;
     var remaining = $("#project-description").attr("maxlength") - length;
