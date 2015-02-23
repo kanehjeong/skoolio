@@ -59,6 +59,8 @@ router.post('/homepage', function(req, res, next) {
 	req.body.createdBy = req.session.user.fname + " " + req.session.user.lname;
 	req.body.createdByID = req.session.user._id;
 
+	req.body.roles = cleanArray(req.body.roles);
+
 	var newProject = new Project(req.body);
 
 	newProject.save(function(err) {
@@ -71,5 +73,17 @@ router.post('/homepage', function(req, res, next) {
 		}
 	});
 });
+
+
+/* Gets rid of all false values (0, null, underfined, false) in array */
+function cleanArray(actual){
+  var newArray = new Array();
+  for(var i = 0; i<actual.length; i++){
+      if (actual[i]){
+        newArray.push(actual[i]);
+    }
+  }
+  return newArray;
+}
 
 module.exports = router;
