@@ -16,11 +16,10 @@ var user_projects = require('./routes/user_projects');
 var project_details = require('./routes/project_details');
 var interested = require('./routes/interested');
 var homepage = require('./routes/homepage');
-var messages = require('./routes/messages');
+var notifications = require('./routes/notifications');
 var signup = require('./routes/signup');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
-var messages = require('./routes/messages');
 
 // Connect to the Mongo database, whether locally or on Heroku
 var local_database_name = 'skoolio';
@@ -69,7 +68,7 @@ app.use('/', homepage);
 app.use('/', signup);
 app.use('/', login);
 app.use('/', logout);
-app.use('/', messages);
+app.use('/', notifications);
 app.use('/', user_projects);
 app.use('/', project_details);
 

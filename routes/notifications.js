@@ -7,8 +7,8 @@ var app = express();
 var router = express.Router();
 
 /* GET */
-router.get('/messages', function(req, res, next) {
-	res.render('messages');
+router.get('/notifications', function(req, res, next) {
+	res.render('notifications');
 });
 
 module.exports = router;
