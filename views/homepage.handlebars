@@ -138,24 +138,26 @@
                                         <div class="form-group">
                                             <label for="project-type" class="col-sm-2 control-label">Type of Project</label>
                                             <div class="col-sm-10">
-                                                <input type="radio" name="type" value="Web Application" required="required"> Web Application
+                                            <select name="type">
+                                                <option value="Web Application"> Web Application
                                                 <br />
-                                                <input type="radio" name="type" value="Android Application"> Android Application
+                                                <option value="Android Application"> Android Application
                                                 <br />
-                                                <input type="radio" name="type" value="Iphone Application"> iPhone Application
+                                                <option value="Iphone Application"> iPhone Application
                                                 <br />
-                                                <input type="radio" name="type" value="Research"> Research
+                                                <option value="Research"> Research
                                                 <br />
-                                                <input type="radio" name="type" value="Engineer"> Engineer
+                                                <option value="Engineer"> Engineer
                                                 <br />
-                                                <input type="radio" name="type" value="Other"> Other
+                                                <option value="Other"> Other
+                                            </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="description" class="col-sm-2 control-label">Description</label>
 
                                             <div class="col-sm-10">
-                                                <textarea name="description" id="project-description" maxlength="240" rows="5" placeholder=" Enter brief summary of your project"></textarea>
+                                                <textarea name="description" id="project-description" maxlength="240" rows="5" placeholder=" Enter brief summary of your project" required="required"></textarea>
                                                 <h6 class="pull-left">
                                                     <span id="characters_remaining">240</span>
                                                     characters remaining
@@ -170,7 +172,7 @@
                                                     <input type="text" class="form-control" name="roles" id="project-roles" placeholder="Enter roles wanted">
                                                     <div></div>
                                                 </div>
-                                                <div><button id="add-role-form" type="button">Add</button></div> 
+                                                <div><button id="add-role-form" type="button">Add More Roles</button></div> 
                                             </div>
                                             
                                         </div>
