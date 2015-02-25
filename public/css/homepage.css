@@ -176,3 +176,17 @@ a.morelink {
 	width: 100%;
 }
 
+#role-form {
+	float:left;
+}
+
+.project-post {
+    position: relative;
+}
+
+.post-time {
+	position: absolute;
+    top: 2%;
+    right: 5%;
+}
+
