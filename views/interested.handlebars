@@ -38,9 +38,10 @@
 			<form method="post">
 				<div><h1>Project: {{title}}</h1></div>
 				<div>
-					<h3>What role are you interested in?</h3>
+					<h3>What role(s) are you interested in?</h3>
+					<div id="check-at-least-one"></div>
 					{{#each roles}}
-					<input type="checkbox" name="type" value="{{this}}" required="required"> {{this}}
+					<input type="checkbox" name="type" value="{{this}}"> {{this}}
 					<br />
 					{{/each}}
 				</div>
@@ -53,7 +54,7 @@
 							<h6 class="pull-right"><span id="char_remaining">200</span> Characters Remaining</h6>
 						</div>
 					</div>
-					<div><button class="btn btn-info" type="submit">Notify Owner</button></div>
+					<div><button id="notify-button" class="btn btn-info" type="submit">Notify Owner</button></div>
 					<br />
 				</div>
 			</form>

@@ -48,6 +48,8 @@ router.get('/interested/:id', function(req, res, next) {
 /* POST */
 router.post('/interested/:id', function(req, res, next) {
 
+	console.log("FORM: " + req.body);
+
 	res.render('notification_sent');
 });
 
