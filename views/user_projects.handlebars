@@ -60,32 +60,43 @@
                                         <br />
                                         {{#each projects}}
                                         <!-- Project Posts -->
-                                        <li class="media">
-                                            
-                                            <div class="media-body">
-                                                <div class="well well-lg">
-                                                    <ul class="media-date text-uppercase reviews list-inline">
-                                                        <li class="pull-left"><h4>{{title}}</h4><li>
-                                                            <li class="pull-right">{{createdAt}}</li>
-                                                        </ul>
-                                                        <br />
+                                        
+                                            <li class="media">
+                                                <div class="media-body">
+                                                    <div class="well well-lg project-post">
+                                                        <h6 class="post-time">{{createdAt}}</h6>
+
+                                                        <h4 class="media-comment">{{title}}</h4>
+
                                                         <p class="media-comment">
-                                                        <label>Type:</label> {{type}}
+                                                            <label>Type:</label> {{type}}
                                                         </p>
                                                         <p class="media-comment">
-                                                        <label>Role:</label> {{roles}}
+                                                            <label>Role:</label> {{roles}}
                                                         </p>
                                                         <div class="more">
                                                             <label>Description:</label> {{description}}
                                                         </div>
+
+                                                        
+
+                                                        <div class="collapse" id="{{_id}}">
+                                                            <!--<div class="well well-lg">-->
+                                                                <h3>Hello</h3>
+                                                                
+                                                            <!--</div>-->
+                                                        </div>
+
                                                         <br />
-                                                        <!--<a href="#{{_id}}" class="btn btn-info btn-circle text-uppercase" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>-->
-                                                        <a href="/project_details/{{id}}" id="project{{id}}" class="btn btn-info btn-circle text-uppercase project-obj"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
-                                                        <a href="/project_details/{{id}}/delete" id="delete-project{{id}}" class="btn btn-info btn-circle text-uppercase delete-project"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+                                                        <form action="user_projects/{{id}}/delete" method="post">
+                                                            <a href="#{{_id}}" class="btn btn-info btn-circle text-uppercase" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
+                                                        
+                                                            <button type="submit" id="delete{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj delete-project"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </li>
-                                            {{/each}}
+                                        {{/each}}
                                         </ul>
                                     </div>
                                 </div>

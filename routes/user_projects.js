@@ -39,7 +39,22 @@ router.get('/user_projects', function(req, res, next) {
 						}
 
 						var pMap = {};
-						pMap["projects"] = projects;
+						pMap["projects"] = [];
+
+						projects.forEach(function(element, index, array) {
+
+							var elementString = {
+								"_id": element._id,
+								"createdAt": element.createdAt.toString().substring(4,24),
+								"title": element.title,
+								"type": element.type,
+								"description": element.description,
+								"createdBy": element.createdBy,
+								"createdByID": element.createdByID,
+								"roles": element.roles.join(', ')
+							};
+							pMap["projects"].push(elementString);
+						});
 
 						res.render('user_projects', pMap);
 	    			});
@@ -49,6 +64,20 @@ router.get('/user_projects', function(req, res, next) {
 	} else {
 	    res.redirect('/');
 	}
+});
+
+router.post('/user_projects/:id/delete', function(req, res, next) {
+	var projectID = req.params.id;
+
+	console.log("PROJECT ID: " + projectID);
+
+	Project.findOne({ "_id": projectID }).remove().exec( function(err) {
+		if(err) {
+			console.log(err);
+		}
+
+		res.redirect('../../user_projects');
+	});
 });
 
 module.exports = router;
