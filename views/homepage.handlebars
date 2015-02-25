@@ -98,26 +98,21 @@
                                                         <label>Description:</label> {{description}}
                                                     </div>
 
+                                                    
+
+                                                    <div class="collapse" id="{{_id}}">
+                                                        <!--<div class="well well-lg">-->
+                                                            <h3>Hello</h3>
+                                                            
+                                                        <!--</div>-->
+                                                    </div>
+
                                                     <br />
-                                                    <!--<a href="#{{_id}}" class="btn btn-info btn-circle text-uppercase" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>-->
-                                                    <a href="/project_details/{{id}}" id="project{{id}}" class="btn btn-info btn-circle text-uppercase project-obj"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
+                                                    <a href="#{{_id}}" class="btn btn-info btn-circle text-uppercase" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
 
                                                     <a href="/interested/{{id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Interested</a>
                                                 </div>
                                             </div>
-                                            <!--<div class="collapse" id="{{_id}}">
-                                                <ul class="media-list">
-                                                    <li class="media media-replied">
-                                                        <div class="media-body">
-                                                            <div class="well well-lg">
-                                                                <form action="/homepage">
-                                                                    <input type="submit" value="Interested">
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>-->
                                         </li>
                                         {{/each}}
                                     </ul>
