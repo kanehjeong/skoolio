@@ -4,6 +4,7 @@ var session = require('client-sessions');
 var mongoose = require('mongoose');
 var User = require('../models/user');
 var Project = require('../models/project');
+var Notification = require('../models/notification');
 
 var db = mongoose.connection;
 
@@ -48,9 +49,38 @@ router.get('/interested/:id', function(req, res, next) {
 /* POST */
 router.post('/interested/:id', function(req, res, next) {
 
-	console.log("FORM: " + req.body);
+	console.log("FORM: " + typeof req.body.message);
+	
+	// Check if session exists
+	if (req.session && req.session.user) {
 
-	res.render('notification_sent');
+		var projectID = req.params.id;
+		Project.findOne({ '_id' : projectID }).exec(function(err, project) {
+			//var moreThanOneRole = typeof req.body.type === "string" ? false : true;
+			
+			var newNotification = new Notification({
+				fromID: req.session.user._id,
+				toID: project.createdByID,
+				from: req.session.user.fname + " " + req.session.user.lname,
+				to: project.createdBy,
+				project: project.title,
+				roles: req.body.roles,
+				message: req.body.message 
+			});
+
+			newNotification.save(function(err) {
+
+				if(err) {
+					return res.send(err);
+				}
+				else {
+					res.render("notification_sent");
+				}
+			});
+
+		});
+	}
+
 });
 
 module.exports = router;

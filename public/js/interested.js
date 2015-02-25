@@ -8,8 +8,7 @@ $("#interested-message").on('input propertychange paste', function() {
 });
 
 $('#notify-button').click(function() {
-	console.log("validating form....");
-
+	
 	var checkedAtLeastOne = false;
 	$('input[type="checkbox"]').each(function() {
 	    if ($(this).is(":checked")) {
