@@ -40,7 +40,22 @@ router.get('/homepage', function(req, res, next) {
 					}
 
 					var pMap = {};
-					pMap["projects"] = projects;
+					pMap["projects"] = [];
+
+					projects.forEach(function(element, index, array) {
+
+						var elementString = {
+							"_id": element._id,
+							"createdAt": element.createdAt.toString().substring(4,24),
+							"title": element.title,
+							"type": element.type,
+							"description": element.description,
+							"createdBy": element.createdBy,
+							"createdByID": element.createdByID,
+							"roles": element.roles.join(', ')
+						};
+						pMap["projects"].push(elementString);
+					});
 
 					res.render('homepage', pMap);
 	    		});
