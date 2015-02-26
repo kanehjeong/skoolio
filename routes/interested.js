@@ -64,6 +64,7 @@ router.post('/interested/:id', function(req, res, next) {
 				from: req.session.user.fname + " " + req.session.user.lname,
 				to: project.createdBy,
 				project: project.title,
+				projectID: projectID,
 				roles: req.body.roles,
 				message: req.body.message 
 			});

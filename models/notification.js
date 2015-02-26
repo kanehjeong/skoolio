@@ -9,6 +9,7 @@ var NotificationSchema = new Schema({
     to: { type: String },
     createdAt: { type: Date },
     project: { type: String },
+    projectID: { type: String }, 
     roles: { type: [String] },
     message: { type: String }
 });

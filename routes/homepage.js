@@ -46,6 +46,13 @@ router.get('/homepage', function(req, res, next) {
 
 						// make sure interested button is only shown to those who do not own the project
 						var notowned = element.createdByID != req.session.user._id;
+						var border;
+
+						if(notowned) {
+							border = "post-border-not-owned";
+						} else {
+							border = "post-border-owned";
+						}
 
 						var elementString = {
 							"_id": element._id,
@@ -56,7 +63,8 @@ router.get('/homepage', function(req, res, next) {
 							"createdBy": element.createdBy,
 							"createdByID": element.createdByID,
 							"roles": element.roles.join(', '),
-							"notowned": notowned
+							"notowned": notowned,
+							"post-border": border
 						};
 						pMap["projects"].push(elementString);
 					});

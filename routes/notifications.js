@@ -42,7 +42,6 @@ router.get('/notifications', function(req, res, next) {
 					nMap["notifications"] = [];
 
 					notifications.forEach(function(element, index, array) {
-
 						var elementString = {
 							"_id": element._id,
 							"fromID": element.fromID,
@@ -51,6 +50,7 @@ router.get('/notifications', function(req, res, next) {
 							"to": element.to,
 							"createdAt": element.createdAt.toString().substring(4,24),
 							"project": element.project,
+							"projectID": element.projectID,
 							"roles": element.roles.join(', '),
 							"message": element.message
 						};

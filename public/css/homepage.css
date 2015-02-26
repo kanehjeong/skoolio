@@ -191,10 +191,19 @@ a.morelink {
     right: 10px;
 }
 
-.post-border {
+.post-border-owned {
 	border: 3px solid;
     border-radius: 5px;
-    border-color: #00CC66;
+    /*border-color: #00CC66;*/
+    border-color: #FF9900;
+    box-shadow: 10px 10px 5px #888888;
+
+}
+
+.post-border-not-owned {
+	border: 3px solid;
+    border-radius: 5px;
+    border-color: #0099FF;
     box-shadow: 10px 10px 5px #888888;
 
 }
