@@ -173,7 +173,7 @@ a.morelink {
 
 /* width and height of project description */
 #project-description {
-	width: 100%;
+	width: 95%;
 }
 
 #role-form {
@@ -182,6 +182,7 @@ a.morelink {
 
 .project-post {
     position: relative;
+    width: 96%;
 }
 
 .post-time {
@@ -190,3 +191,10 @@ a.morelink {
     right: 10px;
 }
 
+.post-border {
+	border: 3px solid;
+    border-radius: 5px;
+    border-color: #00CC66;
+    box-shadow: 10px 10px 5px #888888;
+
+}

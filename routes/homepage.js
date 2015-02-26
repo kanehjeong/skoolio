@@ -49,7 +49,7 @@ router.get('/homepage', function(req, res, next) {
 
 						var elementString = {
 							"_id": element._id,
-							"createdAt": element.createdAt.toString().substring(4,24),
+							"createdAt": element.createdAt.toString().substring(4,15),
 							"title": element.title,
 							"type": element.type,
 							"description": element.description,

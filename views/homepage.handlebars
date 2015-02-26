@@ -77,10 +77,12 @@
                                         <br />
                                         {{#each projects}}
                                         <!-- Project Posts -->
+                                        
                                         <li class="media">
-                                            
+                                           
                                             <div class="media-body">
-                                                <div class="well well-lg project-post">
+                                             
+                                                <div class="well well-lg post-border project-post">
                                                     <h6 class="post-time">{{createdAt}}</h6>
 
                                                     <h4 class="media-comment">{{title}}</h4>
@@ -105,14 +107,16 @@
                                                     </div>
 
                                                     <br />
-                                                    <a href="#{{_id}}" class="btn btn-info btn-circle text-uppercase" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
+                                                    <a href="#{{_id}}" class="btn btn-info btn-circle text-uppercase details-button" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
 
                                                     {{#if notowned}}
-                                                        <a href="/interested/{{_id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Interested</a>
+                                                        <a href="/interested/{{_id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Hit Me Up</a>
                                                     {{/if}}
                                                 </div>
+                                            
                                             </div>
                                         </li>
+                                        
                                         {{/each}}
                                     </ul>
                                     <div id="lastPostsLoader"></div>
