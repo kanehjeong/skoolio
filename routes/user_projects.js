@@ -69,8 +69,6 @@ router.get('/user_projects', function(req, res, next) {
 router.post('/user_projects/:id/delete', function(req, res, next) {
 	var projectID = req.params.id;
 
-	console.log("PROJECT ID: " + projectID);
-
 	Project.findOne({ "_id": projectID }).remove().exec( function(err) {
 		if(err) {
 			console.log(err);
