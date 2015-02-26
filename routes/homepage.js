@@ -44,6 +44,9 @@ router.get('/homepage', function(req, res, next) {
 
 					projects.forEach(function(element, index, array) {
 
+						// make sure interested button is only shown to those who do not own the project
+						var notowned = element.createdByID != req.session.user._id;
+
 						var elementString = {
 							"_id": element._id,
 							"createdAt": element.createdAt.toString().substring(4,24),
@@ -52,7 +55,8 @@ router.get('/homepage', function(req, res, next) {
 							"description": element.description,
 							"createdBy": element.createdBy,
 							"createdByID": element.createdByID,
-							"roles": element.roles.join(', ')
+							"roles": element.roles.join(', '),
+							"notowned": notowned
 						};
 						pMap["projects"].push(elementString);
 					});

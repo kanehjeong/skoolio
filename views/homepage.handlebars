@@ -65,9 +65,9 @@
                                 <li>
                                     <a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Post Project</h4></a>
                                 </li>
-                                <li>
+                                <!--<li>
                                     <a href="#account-settings" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Search Projects</h4></a>
-                                </li>
+                                </li>-->
                             </ul>
                             
                             <div class="tab-content">
@@ -107,7 +107,9 @@
                                                     <br />
                                                     <a href="#{{_id}}" class="btn btn-info btn-circle text-uppercase" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
 
-                                                    <a href="/interested/{{_id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Interested</a>
+                                                    {{#if notowned}}
+                                                        <a href="/interested/{{_id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Interested</a>
+                                                    {{/if}}
                                                 </div>
                                             </div>
                                         </li>
