@@ -39,7 +39,23 @@ router.get('/notifications', function(req, res, next) {
 					}
 
 					var nMap = {};
-					nMap["notifications"] = notifications;
+					nMap["notifications"] = [];
+
+					notifications.forEach(function(element, index, array) {
+
+						var elementString = {
+							"_id": element._id,
+							"fromID": element.fromID,
+							"toID": element.toID,
+							"from": element.from,
+							"to": element.to,
+							"createdAt": element.createdAt.toString().substring(4,24),
+							"project": element.project,
+							"roles": element.roles.join(', '),
+							"message": element.message
+						};
+						nMap["notifications"].push(elementString);
+					});
 
 					res.render('notifications', nMap);
 				});
