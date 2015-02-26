@@ -47,32 +47,17 @@
                             <br />
                             <br />
                             <ul class="mail-list">
-                                <li>
-                                    <a href="#">
-                                        <span class="mail-sender"><label>Name:</label> Kane</span><br />
-                                        <span class="mail-subject"><label>Project:</label> Food App</span><br />
-                                        <span class="mail-subject"><label>Role:</label> Front End Developer</span><br />
-                                        <span class="mail-message-preview">Hi I was interested in being the front end guy yata yata</span>
-                                    </a>
-                                </li>
-                                <br />
-                                <li>
-                                    <a href="#">
-                                        <span class="mail-sender"><label>Name:</label> Liz</span><br />
-                                        <span class="mail-subject"><label>Project:</label> Food App</span><br />
-                                        <span class="mail-subject"><label>Role:</label> UI Designer</span><br />
-                                        <span class="mail-message-preview">Hi I was interested in being the desginer yata yata</span>
-                                    </a>
-                                </li>
-                                <br />
-                                <li>
-                                    <a href="#">
-                                        <span class="mail-sender"><label>Name:</label> Eric</span><br />
-                                        <span class="mail-subject"><label>Project:</label> Food App</span><br />
-                                        <span class="mail-subject"><label>Role:</label> Project Manager</span><br />
-                                        <span class="mail-message-preview">Hi I was interested in being the project manager yata yata</span>
-                                    </a>
-                                </li>
+                                {{#each notifications}}
+                                    <li>
+                                        <a href="#">
+                                            <span class="mail-sender"><label>Name:</label> {{from}}</span><br />
+                                            <span class="mail-subject"><label>Project:</label> {{project}}</span><br />
+                                            <span class="mail-subject"><label>Role:</label> {{roles}}</span><br />
+                                            <span class="mail-message-preview">{{message}}</span>
+                                        </a>
+                                    </li>
+                                    <br />
+                                {{/each}}
                             </ul>
                         </div>
                     </div>
