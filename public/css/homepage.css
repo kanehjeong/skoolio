@@ -12,11 +12,6 @@ a.morelink {
 .morecontent span {
     display: none;
 }
-.comment {
-    width: 400px;
-    background-color: #f0f0f0;
-    margin: 10px;
-}
 
 /* width and height of project description */
 #project-description {
@@ -29,7 +24,7 @@ a.morelink {
 
 .project-post {
     position: relative;
-    width: 96%;
+    width: 100%;
 }
 
 .post-time {
@@ -43,7 +38,7 @@ a.morelink {
     border-radius: 5px;
     /*border-color: #00CC66;*/
     border-color: #FF9900;
-    box-shadow: 10px 10px 5px #888888;
+    box-shadow: -10px -10px -5px #888888 !important;
 
 }
 
@@ -51,6 +46,19 @@ a.morelink {
 	border: 3px solid;
     border-radius: 5px;
     border-color: #0099FF;
-    box-shadow: 10px 10px 5px #888888;
+    box-shadow: -10px -10px -5px #888888;
 
+}
+
+#add-project-button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-header {
+    text-align: center;
+}
+
+html {
+    margin-right: 0px;
 }

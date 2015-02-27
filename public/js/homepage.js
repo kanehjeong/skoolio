@@ -41,6 +41,15 @@ function htmlbodyHeightUpdate(){
 }
 
 $(document).ready(function () {
+
+	// Fixes modal shifting page to left when opened...must find new fix
+	$('#myModal').bind('hidden.bs.modal', function () {
+	  $("html").css("margin-right", "0px");
+	});
+	$('#myModal').bind('show.bs.modal', function () {
+	  $("html").css("margin-right", "-17px");
+	});
+
 	htmlbodyHeightUpdate();
 	$( window ).resize(function() {
 		htmlbodyHeightUpdate();

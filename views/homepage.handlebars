@@ -12,168 +12,161 @@
         <link rel="stylesheet" type="text/css" href="css/homepage.css">
     </head>
     <body>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Define Your New Project</h4>
+                    </div>
+                    <form method="post" class="form-horizontal" role="form">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="title" class="col-sm-2 control-label">Project Name</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="title" id="project-name" placeholder="Enter Project Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-type" class="col-sm-2 control-label">Type of Project</label>
+                                <div class="col-sm-10">
+                                    <select name="type">
+                                        <option value="Web Application"> Web Application
+                                        <br />
+                                        <option value="Android Application"> Android Application
+                                        <br />
+                                        <option value="Iphone Application"> iPhone Application
+                                        <br />
+                                        <option value="Research"> Research
+                                        <br />
+                                        <option value="Engineer"> Engineer
+                                        <br />
+                                        <option value="Other"> Other
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-2 control-label">Description</label>
+
+                                <div class="col-sm-10">
+                                    <textarea name="description" id="project-description" maxlength="240" rows="5" placeholder=" Enter brief summary of your project" required="required"></textarea>
+                                    <h6 class="pull-right">
+                                        <span id="characters_remaining">240</span>
+                                        characters remaining
+                                    </h6>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="roles" class="col-sm-2 control-label">Roles Wanted</label>
+                                <div class="col-sm-10">
+                                    <div id="role-form" class="input-group">
+                                        <input type="text" class="form-control" name="roles" id="project-roles" placeholder="Enter roles wanted">
+                                        <div></div>
+                                    </div>
+                                    <div><button id="add-role-form" type="button">Add More Roles</button></div> 
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button id="submitProject" class="btn btn-primary" type="submit">Post Project</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         {{> navbar}}
         <div class="container">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1">
                     <!-- Header -->
                     <div class="page-header">
-                        <h3 class="reviews">Skoolio</h3>
+                        <h1 class="reviews">Skoolio</h1>
+                        <button type="button" id="add-project-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add a Project</button>
+                    </div>    
+                    <div class="tabs">
+                        <div class="tab-content">
+                            <!-- Projects Tab -->
+                            <div id="all-projects" class="tab-pane active">
+                                <ul class="media-list">
 
-                        <div class="comment-tabs">
-                            <!-- Tabs -->
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li class="active">
-                                    <a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Projects</h4></a>
-                                </li>
-                                <li>
-                                    <a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Post Project</h4></a>
-                                </li>
-                                <!--<li>
-                                    <a href="#account-settings" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Search Projects</h4></a>
-                                </li>-->
-                            </ul>
-                            
-                            <div class="tab-content">
-                                <!-- Projects Tab -->
-                                <div class="tab-pane active" id="comments-logout">
-                                    <ul class="media-list">
-                                        <br />
-                                        {{#each projects}}
-                                        <!-- Project Posts -->
-                                        
-                                        <li class="media">
-                                           
-                                            <div class="media-body">
-                                             
-                                                <div class="well well-lg {{post-border}} project-post">
-                                                    <h6 class="post-time">{{createdAt}}</h6>
+                                    {{#each projects}}
+                                    <!-- Project Posts -->
+                                    
+                                    <li class="media">
+                                       
+                                        <div class="media-body">
+                                         
+                                            <div class="well well-lg project-post {{post-border}}">
+                                                <h6 class="post-time">{{createdAt}}</h6>
 
-                                                    <h4 class="media-comment">{{title}}</h4>
+                                                <h4 class="project-title">{{title}}</h4>
 
-                                                    <p class="media-comment">
-                                                        <label>Type:</label> {{type}}
-                                                    </p>
-                                                    <p class="media-comment">
-                                                        <label>Role:</label> {{roles}}
-                                                    </p>
-                                                    <div class="more">
+                                                <p class="project-type">
+                                                    <label>Type:</label> {{type}}
+                                                </p>
+                                                <p class="project-type">
+                                                    <label>Role:</label> {{roles}}
+                                                </p>
+
+                                                <div class="collapse" id="project-detail{{_id}}">
+                                                    <!--<div class="well well-lg">-->
+                                                    <div class="project-description">
                                                         <label>Description:</label> {{description}}
                                                     </div>
-
-                                                    
-
-                                                    <div class="collapse" id="{{_id}}">
-                                                        <!--<div class="well well-lg">-->
-                                                            <h3>Hello</h3>
-                                                            
-                                                        <!--</div>-->
-                                                    </div>
-
-                                                    <br />
-                                                    <a href="#{{_id}}" class="btn btn-info btn-circle text-uppercase details-button" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
-
-                                                    {{#if notowned}}
-                                                        <a href="/interested/{{_id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Hit Me Up</a>
-                                                    {{/if}}
+                                                        
+                                                    <!--</div>-->
                                                 </div>
-                                            
+
+                                                <br />
+                                                <a href="#project-detail{{_id}}" class="btn btn-info btn-circle text-uppercase details-button" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
+
+                                                {{#if notowned}}
+                                                    <a href="/interested/{{_id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Hit Me Up</a>
+                                                {{/if}}
                                             </div>
-                                        </li>
                                         
-                                        {{/each}}
-                                    </ul>
-                                    <div id="lastPostsLoader"></div>
-                                </div>
-                                <!-- Post Project Tab -->
-                                <div class="tab-pane" id="add-comment">
+                                        </div>
+                                    </li>
+                                    
+                                    {{/each}}
+                                </ul>
+                                <div id="lastPostsLoader"></div>
+                            </div>
+
+                            <!-- Search Projects Tab -->
+                            <div class="tab-pane">
+                                <form action="#" method="post" class="form-horizontal" id="accountSetForm" role="form">
                                     <br />
-                                    <form method="post" class="form-horizontal" id="commentForm" role="form">
-                                        <div class="form-group">
-                                            <label for="title" class="col-sm-2 control-label">Project Name</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" name="title" id="project-name" placeholder="Enter Project Name">
-                                                </div>
-                                            </div>
+                                    <div class="form-group">
+                                        <label for="name" class="col-sm-2 control-label">Project Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Project Name">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="project-type" class="col-sm-2 control-label">Type of Project</label>
-                                            <div class="col-sm-10">
-                                            <select name="type">
-                                                <option value="Web Application"> Web Application
-                                                <br />
-                                                <option value="Android Application"> Android Application
-                                                <br />
-                                                <option value="Iphone Application"> iPhone Application
-                                                <br />
-                                                <option value="Research"> Research
-                                                <br />
-                                                <option value="Engineer"> Engineer
-                                                <br />
-                                                <option value="Other"> Other
-                                            </select>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nickName" class="col-sm-2 control-label">Role</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="nickName" id="nickName">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="description" class="col-sm-2 control-label">Description</label>
-
-                                            <div class="col-sm-10">
-                                                <textarea name="description" id="project-description" maxlength="240" rows="5" placeholder=" Enter brief summary of your project" required="required"></textarea>
-                                                <h6 class="pull-right">
-                                                    <span id="characters_remaining">240</span>
-                                                    characters remaining
-                                                </h6>
-                                            </div>
-
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="col-sm-2 control-label">Platform</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" name="email" id="email">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="roles" class="col-sm-2 control-label">Roles Wanted</label>
-                                            <div class="col-sm-10">
-                                                <div id="role-form" class="input-group">
-                                                    <input type="text" class="form-control" name="roles" id="project-roles" placeholder="Enter roles wanted">
-                                                    <div></div>
-                                                </div>
-                                                <div><button id="add-role-form" type="button">Add More Roles</button></div> 
-                                            </div>
-                                            
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button class="btn btn-primary btn-circle text-uppercase" type="submit" id="submit"><a href="/homepage">Search</a></button>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitProject">Post Project</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- Search Projects Tab -->
-                                <div class="tab-pane" id="account-settings">
-                                    <form action="#" method="post" class="form-horizontal" id="accountSetForm" role="form">
-                                        <br />
-                                        <div class="form-group">
-                                            <label for="name" class="col-sm-2 control-label">Project Name</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Project Name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nickName" class="col-sm-2 control-label">Role</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="nickName" id="nickName">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email" class="col-sm-2 control-label">Platform</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" name="email" id="email">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button class="btn btn-primary btn-circle text-uppercase" type="submit" id="submit"><a href="/homepage">Search</a></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
