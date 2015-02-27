@@ -1,42 +1,9 @@
-/* uses font awesome for social icons */
+/* uses font awesome for social icons 
 @import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+*/
 
 .page-header{
   text-align: center;    
-}
-
-/*social buttons*/
-.btn-social{
-  color: white;
-  opacity:0.9;
-}
-.btn-social:hover {
-  color: white;
-    opacity:1;
-}
-.btn-facebook {
-background-color: #3b5998;
-opacity:0.9;
-}
-.btn-twitter {
-background-color: #00aced;
-opacity:0.9;
-}
-.btn-linkedin {
-background-color:#0e76a8;
-opacity:0.9;
-}
-.btn-github{
-  background-color:#000000;
-  opacity:0.9;
-}
-.btn-google {
-  background-color: #c32f10;
-  opacity: 0.9;
-}
-.btn-stackoverflow{
-  background-color: #D38B28;
-  opacity: 0.9;
 }
 
 /* resume stuff */
@@ -79,15 +46,6 @@ opacity:0.9;
    pointer-events: none;
    cursor: default;
 }
-
-.resume-heading .social-btns{
-  margin-top:15px;
-}
-.resume-heading .social-btns i.fa{
-  margin-left:-5px;
-}
-
-
 
 @media (max-width: 992px) {
   .resume-heading .social-btn-holder{
