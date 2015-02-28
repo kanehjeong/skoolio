@@ -86,7 +86,12 @@ router.post('/homepage', function(req, res, next) {
 	req.body.createdBy = req.session.user.fname + " " + req.session.user.lname;
 	req.body.createdByID = req.session.user._id;
 
-	req.body.roles = cleanArray(req.body.roles);
+	if (typeof req.body.roles === "string") {
+		req.body.roles = [req.body.roles];
+	}
+	else {
+		req.body.roles = cleanArray(req.body.roles);
+	}
 
 	var newProject = new Project(req.body);
 
