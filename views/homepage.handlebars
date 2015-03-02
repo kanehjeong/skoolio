@@ -11,7 +11,11 @@
         <link rel="stylesheet" type="text/css" href="css/navbar.css">
         <link rel="stylesheet" type="text/css" href="css/homepage.css">
     </head>
+
     <body>
+        {{> navbar}}
+        
+        <!-- MODAL POST PROJECT START -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -79,8 +83,8 @@
                     </form>
                 </div>
             </div>
-        </div>
-        {{> navbar}}
+        </div> <!-- MODAL POST PROJECT END -->
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1">
