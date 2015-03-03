@@ -5,13 +5,27 @@ $('.delete-project').click(function(){
 $('.edit-project').click(function() {
 
 	var ID = $(this).attr("id").substring(19);
- 	var descriptionID = "#edit-project-description" + ID;
+ 	var descriptionID = "#project-description" + ID;
 
  	var length = $(descriptionID).val().length;
     var remaining = $(descriptionID).attr("maxlength") - length;
     $("#edit-characters-remaining" + ID).html(remaining);
 
 });
+
+/** 
+ * Set char limit on descriptions and show the current # of chars left
+ **/
+$(".edit-project-description").on('input propertychange paste', function() {
+
+    var ID = $(this).attr("id").substring(19);
+ 	var descriptionID = "#project-description" + ID;
+
+ 	var length = $(descriptionID).val().length;
+    var remaining = $(descriptionID).attr("maxlength") - length;
+    $("#edit-characters-remaining" + ID).html(remaining);
+});
+
 
 /** 
  * Responsible for dynamically adding role forms
