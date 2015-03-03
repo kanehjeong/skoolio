@@ -43,6 +43,13 @@ router.get('/user_projects', function(req, res, next) {
 
 						projects.forEach(function(element, index, array) {
 
+							var isWebApp = element.type === "Web Application";
+							var isAndroidApp = element.type === "Android Application";
+							var isIphoneApp = element.type === "Iphone Application";
+							var isResearch = element.type === "Research";
+							var isEngineer = element.type === "Engineer";
+							var isOther = element.type === "Other";
+
 							var elementString = {
 								"_id": element._id,
 								"createdAt": element.createdAt.toString().substring(4,15),
@@ -51,7 +58,14 @@ router.get('/user_projects', function(req, res, next) {
 								"description": element.description,
 								"createdBy": element.createdBy,
 								"createdByID": element.createdByID,
-								"roles": element.roles.join(', ')
+								"roles": element.roles.join(', '),
+								"rolesArr": element.roles,
+								"webApp": isWebApp,
+								"androidApp": isAndroidApp,
+								"iphoneApp": isIphoneApp,
+								"research": isResearch,
+								"engineer": isEngineer,
+								"other": isOther
 							};
 							pMap["projects"].push(elementString);
 						});
@@ -75,6 +89,30 @@ router.post('/user_projects/:id/delete', function(req, res, next) {
 		}
 
 		res.redirect('../../user_projects');
+	});
+});
+
+router.post('/user_projects/:id/edit', function(req, res, next) {
+	var projectID = req.params.id;
+
+	Project.findById(projectID, function(err, project) {
+		if (err) {
+			console.log(err);
+		}
+
+		project.title = req.body.title;
+		project.type = req.body.type;
+		project.roles = req.body.roles;
+		project.description = req.body.description;
+		project.createdAt = new Date();
+
+		project.save(function(err) {
+			if(err) {
+				console.log(err);
+			}
+
+			res.redirect('../../user_projects');
+		});
 	});
 });
 
