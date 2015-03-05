@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var handlebars = require('express-handlebars')
 var mongoose = require('mongoose');
 var session = require('client-sessions');
+var woopra = require('woopra');
 
 // Declare all routes here
 var routes = require('./routes/index');
@@ -32,6 +33,8 @@ db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function(callback) {
   console.log("DATABASE CONNECTED");
 }); 
+
+
 
 var app = module.exports = express();
 

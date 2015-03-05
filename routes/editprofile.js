@@ -4,8 +4,11 @@ var router = express.Router();
 /* GET */
 router.get('/editprofile', function(req, res, next) {
 
-	console.log(req.session.user.fname);
-	res.render('editprofile');
+	var userString = {
+		"email": req.session.user.email,
+		"name": req.session.user.fname + " " + req.session.user.lname
+	};
+	res.render('editprofile', userString);
 });
 
 module.exports = router;

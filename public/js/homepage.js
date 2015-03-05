@@ -84,6 +84,12 @@ $(document).ready(function () {
         $(this).prev().toggle();
         return false;
     });
+
+
+    // track how many times add project is clicked
+    $('#add-project-button').click(function() {
+    	woopra.track("v1_add_click");
+    });
 });
 
 

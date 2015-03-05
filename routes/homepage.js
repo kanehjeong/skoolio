@@ -41,6 +41,7 @@ router.get('/homepage', function(req, res, next) {
 
 					var pMap = {};
 					pMap["projects"] = [];
+					pMap["user"] = [];
 
 					projects.forEach(function(element, index, array) {
 
@@ -67,6 +68,12 @@ router.get('/homepage', function(req, res, next) {
 							"post-border": border
 						};
 						pMap["projects"].push(elementString);
+
+						var userString = {
+							"email": req.session.user.email,
+							"name": req.session.user.fname + " " + req.session.user.lname
+						};
+						pMap["user"].push(userString);
 					});
 
 					res.render('homepage', pMap);

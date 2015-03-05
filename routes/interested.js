@@ -36,7 +36,21 @@ router.get('/interested/:id', function(req, res, next) {
 
 	    		Project.findOne({ '_id' : projectID }).exec(function(err, project) {
 
-					res.render('interested', project);
+	    			var projectStr = {
+	    				"createdBy": project.createdBy,
+						"createdByID": project.createdByID,
+						"createdAt": project.createdAt,
+					    "title": project.title,
+					    "type": project.type,
+					    "roles": project.roles,
+					    "description": project.description,
+					    "user": [{
+					    			"email": req.session.user.email,
+					    			"name": req.session.user.fname + " " + req.session.user.lname
+					    		}]
+	    			};
+
+					res.render('interested', projectStr);
 	    		});
 	    	}
 	    });

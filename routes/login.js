@@ -5,6 +5,8 @@ var User = require('../models/user');
 
 var app = express();
 var router = express.Router();
+//var Woopra = require('woopra');
+//var woopra = new Woopra('skoolio.herokuapp.com');
 
 /* GET */
 router.get('/login', function(req, res, next) {
@@ -30,6 +32,12 @@ router.post('/login', function(req, res, next) {
             // delete the password from the session for security
             delete req.user.password; 
             
+            //woopra.identify({
+                //email: req.session.user.email,
+                //name: req.session.user.fname + " " + req.session.user.lname
+            //});
+
+            //woopra.track();
 
             res.redirect('/homepage');
             return;

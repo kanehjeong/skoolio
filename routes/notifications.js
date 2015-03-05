@@ -40,6 +40,7 @@ router.get('/notifications', function(req, res, next) {
 
 					var nMap = {};
 					nMap["notifications"] = [];
+					nMap["user"] = [];
 
 					notifications.forEach(function(element, index, array) {
 						var elementString = {
@@ -55,8 +56,15 @@ router.get('/notifications', function(req, res, next) {
 							"message": element.message
 						};
 						nMap["notifications"].push(elementString);
+
 					});
 
+					var userString = {
+						"email": req.session.user.email,
+						"name": req.session.user.fname + " " + req.session.user.lname
+					};
+					nMap["user"].push(userString);
+					
 					res.render('notifications', nMap);
 				});
 			}	

@@ -21,12 +21,4 @@ router.get('/account_created', function(req, res, next) {
     res.render('account_created');
 });
 
-router.get('/curr_projects', function(req, res, next) {
-    res.render('curr_projects');
-});
-
-router.get('/settings', function(req, res, next) {
-    res.render('settings');
-});
-
 module.exports = router;

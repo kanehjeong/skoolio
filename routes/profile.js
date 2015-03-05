@@ -3,7 +3,6 @@ var router = express.Router();
 var session = require('client-sessions');
 var mongoose = require('mongoose');
 var User = require('../models/user');
-var Profile = require('../models/profile');
 
 var db = mongoose.connection;
 
@@ -32,14 +31,15 @@ router.get('/profile', function(req, res, next) {
 	        	// expose the user to the template
 	        	res.locals.user = user;
 
-				Profile.find({ "_id": req.session.user._id }, function(err, profile) {
-					if(err) {
-						res.send(err);
-						return;
-					}
+	        	var userString = 
+		        	{
+		        		"user": [{
+						    		"email": req.session.user.email,
+						    		"name": req.session.user.fname + " " + req.session.user.lname
+						    	}]
+					};
 
-				    res.render('profile', profile);  
-				});
+				res.render('profile', userString);
 	    	}
 	    });
 		

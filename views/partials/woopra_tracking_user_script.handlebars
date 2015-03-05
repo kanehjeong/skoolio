@@ -1,0 +1,13 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+        woopra.identify({
+            email: "{{user.0.email}}",
+            name: "{{user.0.name}}",
+        });
+
+        woopra.track();
+
+        console.log("tracking...");
+    });
+</script>
