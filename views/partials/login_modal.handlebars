@@ -1,0 +1,56 @@
+<div class="cd-user-modal"> 
+	<div class="cd-user-modal-container">
+		<div id="login-modal-header"><h1 class="title">SIGN IN</h1></div>
+
+		<div id="cd-login"> 
+			<form action="/login" class="cd-form" method="post">
+				<p class="fieldset">
+					<label class="image-replace cd-email" for="signin-username">Username</label>
+					<input class="full-width has-padding has-border" id="signin-username" name="username" type="text" placeholder="Username" required="required" />
+					<span class="cd-error-message">Error message here!</span>
+				</p>
+
+				<p class="fieldset">
+					<label class="image-replace cd-password" for="signin-password">Password</label>
+					<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="Password" required="required" />
+					<a href="#0" class="hide-password">Show</a>
+					<span class="cd-error-message">Error message here!</span>
+				</p>
+
+				<p class="fieldset">
+					<input type="checkbox" id="remember-me" checked>
+					<label for="remember-me">Remember me</label>
+				</p>
+
+				<hr>
+
+				<p class="fieldset">
+					<button id="login-button" class="btn btn-fresh text-capitalize" type="submit">Login</button>
+				</p>	
+
+			</form>
+			
+			<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+			
+		</div> 
+
+		<div id="cd-reset-password"> <!-- reset password form -->
+			<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+			<form class="cd-form">
+				<p class="fieldset">
+					<label class="image-replace cd-email" for="reset-email">E-mail</label>
+					<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+					<span class="cd-error-message">Error message here!</span>
+				</p>
+
+				<p class="fieldset">
+					<input class="full-width has-padding" type="submit" value="Reset password">
+				</p>
+			</form>
+
+			<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+		</div> 
+		<a href="#0" class="cd-close-form">Close</a>
+	</div> 
+</div> 
