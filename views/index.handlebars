@@ -34,26 +34,54 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
 
-                            <form action="/signup" class="form-inline" role="form" method="post">
-                                <div class="input-group">
-                                
-                                    <input id="signup-fname" type="text" class="form-control" placeholder="First Name" name="fname" required>
-                                    
-                                        
-                                    <input id="signup-lname" type="text" class="form-control" placeholder="Last Name" name="lname" required>
-                                    
-                                    <input type="email" class="form-control" placeholder="Email Address" name="email" required>
-                                    <hr>
-                                    <input type="text" class="form-control" placeholder="Username" name="username" required>
-                                    <hr>
-                                    <input type="password" class="form-control" placeholder="Password" name="password" required>
-                                        
-                                    <br />
+                            <form action="/signup" role="form" method="post" class="form-horizontal">
 
-                                    <div style="text-align: center;">
-                                        <button class="btn btn-success btn-circle" type="submit">Sign up for free</button>
+                                <div class="form-group">          
+
+                                    <label class="control-label col-sm-1" for="signup-fname"></label>   
+                                    <div class="col-sm-11">        
+                                        <input id="signup-fname" type="text" class="form-control" placeholder="First Name" name="fname" required>
+                                    </div>
+                                </div>    
+                                        
+                                <div class="form-group">                     
+                                    <label class="control-label col-sm-2" for="signup-lname"></label>          
+                                    <div class="col-sm-10">     
+                                        <input id="signup-lname" type="text" class="form-control" placeholder="Last Name" name="lname" required>
                                     </div>
                                 </div>
+
+
+                                <div class="form-group">                     
+                                    <label class="control-label col-sm-2" for="email"></label>          
+                                    <div class="col-sm-10">   
+                                        <input type="email" class="form-control" placeholder="Email Address" name="email" required>
+                                    </div>
+                                </div>    
+
+                                <div class="form-group">                     
+                                    <label class="control-label col-sm-2" for="username"></label>          
+                                    <div class="col-sm-10">   
+
+                                        <input type="text" class="form-control" placeholder="Username" name="username" required>
+                                    </div>
+                                </div>    
+
+                                <div class="form-group">                     
+                                    <label class="control-label col-sm-2" for="password"></label>          
+                                    <div class="col-sm-10">   
+                                        <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                    </div>    
+                                </div>    
+
+                                <br />
+
+                                <div style="text-align: center;">
+                                    <button class="btn btn-success btn-circle" type="submit">Sign up for free</button>
+                                </div>
+
+
+
                             </form>
                         </div>
                     </div>
@@ -63,13 +91,13 @@
             <section class="section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-1 text-center mt-100 mb-100">
+                        <div class="col-sm-4 col-md-offset-1 text-center mt-100 mb-100">
                             <div class="phone">
-                                <img class="img-responsive img-rounded" src="">
+                                <img class="img-responsive img-rounded" src="images/skoolio1.jpg">
                             </div>
                         </div>
-                        <div class="col-md-5 col-md-offset-1">
-                            <div class="content">
+                        <div class="col-sm-5 col-md-offset-1">
+
                                 <div class="pull-middle">
                                     <h2 class="h1 page-header">Discover more about Skoolio.</h2>
                                     <ul class="media-list">
@@ -102,7 +130,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                    
                         </div>
                     </div>
                 </div>
