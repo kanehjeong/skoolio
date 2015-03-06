@@ -21,15 +21,27 @@
                         <label for="project-type" class="col-sm-2 control-label">Type of Project</label>
                         <div class="col-sm-10">
                             <select name="type">
-                                <option {{#if webApp}}selected="selected"{{/if}} value="Web Application"> Web Application
+                                <option {{#if webApp}}selected="selected"{{/if}} value="Web Application"> Web App
                                 <br />
-                                <option {{#if androidApp}}selected="selected"{{/if}} value="Android Application"> Android Application
+                                <option {{#if androidApp}}selected="selected"{{/if}} value="Android Application"> Android App
                                 <br />
-                                <option {{#if iphoneApp}}selected="selected"{{/if}} value="Iphone Application"> iPhone Application
+                                <option {{#if iphoneApp}}selected="selected"{{/if}} value="Iphone Application"> iPhone App
+                                <br />                            
+                                <option {{#if design}}selected="selected"{{/if}} value="Design"> Design
+                                <br />
+                                <option {{#if marketing}}selected="selected"{{/if}} value="Marketing"> Marketing
                                 <br />
                                 <option {{#if research}}selected="selected"{{/if}} value="Research"> Research
                                 <br />
-                                <option {{#if engineer}}selected="selected"{{/if}} value="Engineer"> Engineer
+                                <option {{#if engineer}}selected="selected"{{/if}} value="Electrical"> Electrical
+                                <br />
+                                <option {{#if theatre}}selected="selected"{{/if}} value="Theatre"> Theatre
+                                <br />
+                                <option {{#if film}}selected="selected"{{/if}} value="Film"> Film
+                                <br />
+                                <option {{#if book}}selected="selected"{{/if}} value="Book"> Book
+                                <br />
+                                <option {{#if art}}selected="selected"{{/if}} value="Art"> Art
                                 <br />
                                 <option {{#if other}}selected="selected"{{/if}} value="Other"> Other
                             </select>

@@ -48,8 +48,14 @@ router.get('/user_projects', function(req, res, next) {
 							var isAndroidApp = element.type === "Android Application";
 							var isIphoneApp = element.type === "Iphone Application";
 							var isResearch = element.type === "Research";
-							var isEngineer = element.type === "Engineer";
+							var isElectrical = element.type === "Electrical";
 							var isOther = element.type === "Other";
+							var isDesign = element.type === "Design";
+							var isMarketing = element.type === "Marketing";
+							var isTheatre = element.type === "Theatre";
+							var isFilm = element.type === "Film";
+							var isBook = element.type === "Book";
+							var isArt = element.type === "Art";
 
 							var elementString = {
 								"_id": element._id,
@@ -61,12 +67,19 @@ router.get('/user_projects', function(req, res, next) {
 								"createdByID": element.createdByID,
 								"roles": element.roles.join(', '),
 								"rolesArr": element.roles,
+
 								"webApp": isWebApp,
 								"androidApp": isAndroidApp,
 								"iphoneApp": isIphoneApp,
 								"research": isResearch,
-								"engineer": isEngineer,
-								"other": isOther
+								"electrical": isElectrical,
+								"other": isOther,
+								"design": isDesign,
+								"marketing": isMarketing,
+								"theatre": isTheatre,
+								"film": isFilm,
+								"book": isBook,
+								"art": isArt
 							};
 							pMap["projects"].push(elementString);
 
