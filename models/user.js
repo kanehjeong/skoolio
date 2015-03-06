@@ -14,6 +14,10 @@ var UserSchema = new Schema({
     fname: { type: String, required: true },
     lname: { type: String, required: true },
     password: { type: String, required: true },
+    skills: { type: [String] },
+    bio: { type: String },
+    newUser: { type: Boolean },
+
 
     // for password safety
     loginAttempts: { type: Number, required: true, default: 0 },

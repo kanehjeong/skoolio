@@ -69,12 +69,33 @@ router.get('/homepage', function(req, res, next) {
 						};
 						pMap["projects"].push(elementString);
 
-						var userString = {
-							"email": req.session.user.email,
-							"name": req.session.user.fname + " " + req.session.user.lname
-						};
-						pMap["user"].push(userString);
 					});
+
+					/* check if new user to see if welcome modal should pop up */
+					var newUser = req.session.user.newUser;
+
+					if(newUser) {
+						User.findById(req.session.user._id, function(err, the_user) {
+							if(err) {
+								console.log(err);
+							}
+
+							req.session.user.newUser = false;
+							the_user.newUser = false;
+							the_user.save(function(err) {
+								if(err) {
+									console.log(err);
+								}
+							});
+						});
+					}
+
+					var userString = {
+						"email": req.session.user.email,
+						"name": req.session.user.fname + " " + req.session.user.lname,
+						"new": newUser
+					};
+					pMap["user"].push(userString);
 
 					res.render('homepage', pMap);
 	    		});

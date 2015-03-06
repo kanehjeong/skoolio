@@ -20,14 +20,37 @@ router.get('/signup', function(req, res, next) {
 /* POST */
 router.post('/signup', function(req, res, next) {
 
+
 	var newUser = new User(req.body);
+	newUser.newUser = true;
+	newUser.bio = "No Summary Created";
 
 	newUser.save(function(err) {
 		if(err) {
 			return res.send(err);
 		}
+
 		else {
-			res.redirect('/account_created')
+			// attempt to authenticate user
+		    User.getAuthenticated(req.body.username, req.body.password, function(err, user, reason) {
+		        if (err) {
+		            throw err;
+		        }
+
+		        // login was successful if we have a user
+		        if (user) {
+
+		            // handle login success
+		            req.user = user;
+		            req.session.user = user;
+
+		            // delete the password from the session for security
+		            delete req.user.password; 
+
+		            res.redirect('/homepage');
+		            return;
+		        }
+		    });
 		}
 	});
 });
