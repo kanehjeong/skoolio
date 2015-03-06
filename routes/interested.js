@@ -62,8 +62,6 @@ router.get('/interested/:id', function(req, res, next) {
 
 /* POST */
 router.post('/interested/:id', function(req, res, next) {
-
-	console.log("FORM: " + typeof req.body.message);
 	
 	// Check if session exists
 	if (req.session && req.session.user) {

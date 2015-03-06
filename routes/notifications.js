@@ -42,30 +42,38 @@ router.get('/notifications', function(req, res, next) {
 					nMap["notifications"] = [];
 					nMap["user"] = [];
 
-					notifications.forEach(function(element, index, array) {
-						var elementString = {
-							"_id": element._id,
-							"fromID": element.fromID,
-							"toID": element.toID,
-							"from": element.from,
-							"to": element.to,
-							"createdAt": element.createdAt.toString().substring(4,24),
-							"project": element.project,
-							"projectID": element.projectID,
-							"roles": element.roles.join(', '),
-							"message": element.message
-						};
-						nMap["notifications"].push(elementString);
-
-					});
-
 					var userString = {
 						"email": req.session.user.email,
 						"name": req.session.user.fname + " " + req.session.user.lname
 					};
 					nMap["user"].push(userString);
-					
-					res.render('notifications', nMap);
+
+					notifications.forEach(function(element, index, array) {
+
+						User.findById(element.fromID, function(err, fromUser) {
+
+							var elementString = {
+								"_id": element._id,
+								"fromID": element.fromID,
+								"toID": element.toID,
+								"from": element.from,
+								"to": element.to,
+								"createdAt": element.createdAt.toString().substring(4,15),
+								"project": element.project,
+								"projectID": element.projectID,
+								"roles": element.roles.join(', '),
+								"message": element.message,
+								"fromBio": fromUser.bio,
+								"fromSkills": fromUser.skills
+							};
+							nMap["notifications"].push(elementString);
+
+							if(index === array.length-1) {
+
+								res.render('notifications', nMap);
+							}
+						});
+					});
 				});
 			}	
 	    });
@@ -74,5 +82,6 @@ router.get('/notifications', function(req, res, next) {
 	    res.redirect('/');
 	}
 });
+
 
 module.exports = router;
