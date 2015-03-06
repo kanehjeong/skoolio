@@ -90,6 +90,11 @@ $(document).ready(function () {
     $('#add-project-button').click(function() {
     	woopra.track("v1_add_click");
     });
+
+    // track how many times add project2 is clicked
+    $('#add-project-button2').click(function() {
+    	woopra.track("v2_add_click");
+    });
 });
 
 
