@@ -114,21 +114,25 @@ router.post('/homepage', function(req, res, next) {
 	// set the created by property to be current user
 	req.body.createdBy = req.session.user.fname + " " + req.session.user.lname;
 	req.body.createdByID = req.session.user._id;
+	
+	if( !(req.files.images === undefined)) {
+		console.log("should not get here");
+		// get the temporary location of the file
+	    var tmp_path = req.files.images.path;
+	    // set where the file should actually exists - in this case it is in the "images" directory
+	    var target_path = './public/images/' + req.files.images.name;
+	    // move the file from the temporary location to the intended location
+	    fs.rename(tmp_path, target_path, function(err) {
+	        if (err) throw err;
+	        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+	        fs.unlink(tmp_path, function() {
+	            if (err) throw err;
+	        });
+	    });
 
-	// get the temporary location of the file
-    var tmp_path = req.files.images.path;
-    // set where the file should actually exists - in this case it is in the "images" directory
-    var target_path = './public/images/' + req.files.images.name;
-    // move the file from the temporary location to the intended location
-    fs.rename(tmp_path, target_path, function(err) {
-        if (err) throw err;
-        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-        fs.unlink(tmp_path, function() {
-            if (err) throw err;
-        });
-    });
-
-    console.log('File uploaded to: ' + target_path + ' - ' + req.files.images.size + ' bytes');
+	    console.log('File uploaded to: ' + target_path + ' - ' + req.files.images.size + ' bytes');
+	}
+	
 
 	if (typeof req.body.roles === "string") {
 		req.body.roles = [req.body.roles];
