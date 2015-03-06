@@ -23,6 +23,7 @@
     "mongodb": "*",
     "mongoose": "3.8",
     "morgan": "~1.5.1",
+    "multer": "^0.1.8",
     "serve-favicon": "~2.2.0",
     "woopra": "^0.2.0"
   },

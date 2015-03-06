@@ -8,6 +8,7 @@ var handlebars = require('express-handlebars')
 var mongoose = require('mongoose');
 var session = require('client-sessions');
 var woopra = require('woopra');
+var multer = require('multer');
 
 // Declare all routes here
 var routes = require('./routes/index');
@@ -50,6 +51,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/uploads', express.static(__dirname + "/uploads"));
+app.use(multer({dest: './uploads/'}))
 
 app.use(session({
     cookieName: 'session',

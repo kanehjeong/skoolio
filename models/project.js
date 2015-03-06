@@ -11,7 +11,9 @@ var ProjectSchema = new Schema({
     type: { type: String, required: true },
     roles: { type: [String], required: true },
     description: { type: String, required: true },
-    url: { type: String }
+    images: { data: Buffer, contentType: String },
+    url: { type: String },
+    course: { type: String }
 });
 
 
