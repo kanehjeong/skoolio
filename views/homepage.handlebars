@@ -4,13 +4,14 @@
         <meta charset="UTF-8" />
         <title>Skoolio Homepage</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <link rel="shortcut icon" href="images/favicon.jpg">
+        <link rel="shortcut icon" href="/images/favicon.jpg">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css">
-        <link rel="stylesheet" type="text/css" href="css/navbar.css">
-        <link rel="stylesheet" type="text/css" href="css/homepage.css">
 
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+        <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+        
         {{> woopra_tracking_script}}
         {{> woopra_tracking_user_script}}
     </head>
@@ -21,100 +22,103 @@
 
         <!--Show this modal only to new users-->
 
-            {{> welcome_modal}}
-
+        {{> welcome_modal}}
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <!-- Header -->
-                    <div class="page-header">
-                        <h1 id="homepage-header">Skoolio</h1>
-                        <button type="button" id="add-project-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add a Project</button>
-                    </div>    
-                    <div class="tabs">
-                        <div class="tab-content">
-                            <!-- Projects Tab -->
-                            <div id="all-projects" class="tab-pane active">
-                                <ul class="media-list">
 
-                                    {{#each projects}}
-                                    <!-- Project Posts -->
-                                    
-                                    <li class="media">
-                                       
-                                        <div class="media-body">
-                                         
-                                            <div class="well well-lg project-post {{post-border}}">
-                                                <h6 class="post-time">{{createdAt}}</h6>
+                <h1 id="homepage-header">Skoolio</h1>
 
-                                                <h4 class="project-title">{{title}}</h4>
+                <!-- Title, Add Project -->
+                <div class="col-sm-2">
+                    <button type="button" id="add-project-button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#addModal">Add a Project</button>
+                </div>
+                
+                <form action="homepage/search" method="get">
+                    <!-- Search Bar -->
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <div class="input-group-btn search-panel">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <span id="search_concept">Filter by</span> <span class="caret"></span>
+                                </button>
 
-                                                <p class="project-type">
-                                                    <label>Type:</label> {{type}}
-                                                </p>
-                                                <p class="project-type">
-                                                    <label>Role:</label> {{roles}}
-                                                </p>
-
-                                                <div class="collapse" id="project-detail{{_id}}">
-                                                    <!--<div class="well well-lg">-->
-                                                    <div class="project-description">
-                                                        <label>Description:</label> {{description}}
-                                                    </div>
-                                                        
-                                                    <!--</div>-->
-                                                </div>
-
-                                                <div id="details-hitmeup-block">
-                                                    <a href="#project-detail{{_id}}" class="btn btn-info btn-circle text-uppercase details-button" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
-
-                                                {{#if notowned}}
-                                                    <a href="/interested/{{_id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Hit Me Up</a>
-                                                {{/if}}
-                                                <div>
-                                            </div>
-                                        
-                                        </div>
-                                    </li>
-                                    
-                                    {{/each}}
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#stitle">Title</a></li>
+                                    <li><a href="#stype">Type</a></li>
+                                    <li><a href="#srole">Role</a></li>
+                                    <li><a href="#scourse">Course</a></li>
+                                    <li><a href="#notowned">Not Owned</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#all">Everything</a></li>
                                 </ul>
-                                <div id="lastPostsLoader"></div>
-                            </div>
 
-                            <!-- Search Projects Tab -->
-                            <div class="tab-pane">
-                                <form action="#" method="post" class="form-horizontal" id="accountSetForm" role="form">
-                                    <br />
-                                    <div class="form-group">
-                                        <label for="name" class="col-sm-2 control-label">Project Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Project Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nickName" class="col-sm-2 control-label">Role</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="nickName" id="nickName">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email" class="col-sm-2 control-label">Platform</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" name="email" id="email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                            <button class="btn btn-primary btn-circle text-uppercase" type="submit" id="submit"><a href="/homepage">Search</a></button>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
+                            <input type="hidden" name="filter" value="all" id="search_param">         
+                            <input type="text" class="form-control" name="search" placeholder="Search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+
                         </div>
                     </div>
+
+                </form>
+            </div>
+                          
+            <br />
+
+            <div class="row">
+                <!-- Projects -->
+                <div id="all-projects" class="tab-pane active col-sm-11">
+                    <ul class="media-list">
+
+                        {{#each projects}}
+                        <!-- Project Posts -->
+                        
+                        <li class="media">
+                           
+                            <div class="media-body">
+                             
+                                <div class="well well-lg project-post {{post-border}}">
+                                    <h6 class="post-time">{{createdAt}}</h6>
+
+                                    <h4 class="project-title">{{title}}</h4>
+
+                                    <p class="project-type">
+                                        <label>Type:</label> {{type}}
+                                    </p>
+                                    <p class="project-type">
+                                        <label>Role:</label> {{roles}}
+                                    </p>
+
+                                    <div class="collapse" id="project-detail{{_id}}">
+                                        <!--<div class="well well-lg">-->
+                                        <div class="project-description">
+                                            <label>Description:</label> {{description}}
+                                        </div>
+                                            
+                                        <!--</div>-->
+                                    </div>
+
+                                    <div id="details-hitmeup-block">
+                                        <a href="#project-detail{{_id}}" class="btn btn-info btn-circle text-uppercase details-button" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
+
+                                    {{#if notowned}}
+                                        <a href="/interested/{{_id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Hit Me Up</a>
+                                    {{/if}}
+                                    <div>
+                                </div>
+                            
+                            </div>
+                        </li>
+                        
+                        {{/each}}
+                    </ul>
+                    
                 </div>
+
+                
             </div>
         </div>
     </body>

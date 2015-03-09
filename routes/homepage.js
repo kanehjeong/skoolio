@@ -33,7 +33,7 @@ router.get('/homepage', function(req, res, next) {
 	        	// expose the user to the template
 	        	res.locals.user = user;
 
-	    		Project.find({}).sort({'createdAt' : 'desc'}).exec(function(err, projects) {
+	    		Project.find({ 'type' : 'Web Application'}).sort({'createdAt' : 'desc'}).exec(function(err, projects) {
 					
 					if(err) {
 						res.send(err);
@@ -116,7 +116,7 @@ router.post('/homepage', function(req, res, next) {
 	req.body.createdByID = req.session.user._id;
 	
 	if( !(req.files.images === undefined)) {
-		console.log("should not get here");
+
 		// get the temporary location of the file
 	    var tmp_path = req.files.images.path;
 	    // set where the file should actually exists - in this case it is in the "images" directory
@@ -155,10 +155,110 @@ router.post('/homepage', function(req, res, next) {
 });
 
 
+
+/* GET */
+router.get('/homepage/search', function(req, res, next) {
+
+	// Check if session exists
+	if (req.session && req.session.user) {
+	    
+	    // lookup the user in the DB by pulling their email from the session
+	    User.findOne({ email: req.session.user.email }, function (err, user) {
+
+	    	if(err) {
+	    		res.send(err);
+	    		return;
+	    	}
+
+			// if the user isn't found in the DB, reset the session info and
+	        // redirect the user to the login page
+			if (!user) {
+
+	        	req.session.reset();
+	        	res.redirect('/');
+	    	} else {
+	        
+	        	// expose the user to the template
+	        	res.locals.user = user;
+
+	        	var filter = req.query.filter;
+	        	var search = req.query.search;
+	        	var query;
+
+	        	// check for which query to exec to filter search by
+	        	switch(filter) {
+			    	case 'stitle':
+			        	query = Project.find({ title : search }).sort({'createdAt' : 'desc'})
+			        	break;
+			    	case 'stype':
+			        	query = Project.find({ type : search }).sort({'createdAt' : 'desc'})
+			        	break;
+			        case 'srole':
+			        	query = Project.find({ roles : search }).sort({'createdAt' : 'desc'})
+			        	break;
+			        case 'scourse':
+			        	query = Project.find({ course : search }).sort({'createdAt' : 'desc'})
+			        	break; 	
+			    	default:
+			    	    break;
+				}
+				
+	    		query.exec(function(err, projects) {
+					
+					if(err) {
+						res.send(err);
+						return;
+					}
+
+					var pMap = {};
+					pMap["projects"] = [];
+					pMap["user"] = [];
+
+					projects.forEach(function(element, index, array) {
+
+						// make sure interested button is only shown to those who do not own the project
+						var notowned = element.createdByID != req.session.user._id;
+						var border;
+
+						if(notowned) {
+							border = "post-border-not-owned";
+						} else {
+							border = "post-border-owned";
+						}
+
+						var elementString = {
+							"_id": element._id,
+							"createdAt": element.createdAt.toString().substring(4,15),
+							"title": element.title,
+							"type": element.type,
+							"description": element.description,
+							"createdBy": element.createdBy,
+							"createdByID": element.createdByID,
+							"roles": element.roles.join(', '),
+							"notowned": notowned,
+							"post-border": border
+						};
+						pMap["projects"].push(elementString);
+
+					});
+
+					res.render('homepage', pMap);
+	    		});
+	    	}
+	    });
+		
+	} else {
+	    res.redirect('/');
+	}
+});
+
+
+
+
 /* Gets rid of all false values (0, null, underfined, false) in array */
 function cleanArray(actual){
   var newArray = new Array();
-  for(var i = 0; i<actual.length; i++){
+  for(var i = 0; i<actual.length; ++i){
       if (actual[i]){
         newArray.push(actual[i]);
     }
