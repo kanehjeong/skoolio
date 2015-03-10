@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     SALT_WORK_FACTOR = 10,
 
     // these values can be whatever you want - we're defaulting to a
-    // max of 5 attempts, resulting in a 2 hour lock
+    // max of 5 attempts, resulting in a 5 minute lock
     MAX_LOGIN_ATTEMPTS = 5,
     LOCK_TIME = 5 * 60 * 1000; // Five minute lock
 
@@ -16,6 +16,7 @@ var UserSchema = new Schema({
     password: { type: String, required: true },
     skills: { type: [String] },
     bio: { type: String },
+    image: { data: Buffer, contentType: String },
     newUser: { type: Boolean },
 
 

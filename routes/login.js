@@ -5,13 +5,6 @@ var User = require('../models/user');
 
 var app = express();
 var router = express.Router();
-//var Woopra = require('woopra');
-//var woopra = new Woopra('skoolio.herokuapp.com');
-
-/* GET */
-router.get('/login', function(req, res, next) {
-	res.render('login');
-});
 
 /* POST */
 router.post('/login', function(req, res, next) {
