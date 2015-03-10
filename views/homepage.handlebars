@@ -94,11 +94,30 @@
 
                                     <div class="collapse" id="project-detail{{_id}}">
                                         <!--<div class="well well-lg">-->
-                                        <div class="project-description">
+                                        <p class="project-description">
                                             <label>Description:</label> {{description}}
-                                        </div>
+                                        </p>
+
+                                        {{#if course-exist}}
+                                            <p class="project-type">
+                                                <label>Course:</label> {{course}}
+                                            </p>
+                                        {{/if}}
+
+                                        {{#if url-exist}}
+                                            <p class="project-type">
+                                                <label>URL:</label> {{url}}
+                                            </p>
+                                        {{/if}}
                                             
+                                        {{#if image-exist}}    
+                                            <p class="project-image">
+                                                <label>Image:</label><img src="data:{{image-contentType}};base64,{{image-data}}" />
+                                            </p>
+                                        {{/if}}
                                         <!--</div>-->
+                                    
+                                    
                                     </div>
 
                                     <div id="details-hitmeup-block">

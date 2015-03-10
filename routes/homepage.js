@@ -33,7 +33,7 @@ router.get('/homepage', function(req, res, next) {
 	        	// expose the user to the template
 	        	res.locals.user = user;
 
-	    		Project.find({ 'type' : 'Web Application'}).sort({'createdAt' : 'desc'}).exec(function(err, projects) {
+	    		Project.find({}).sort({'createdAt' : 'desc'}).exec(function(err, projects) {
 					
 					if(err) {
 						res.send(err);
@@ -56,6 +56,31 @@ router.get('/homepage', function(req, res, next) {
 							border = "post-border-owned";
 						}
 
+						var urlExist = false;
+						var courseExist = false;
+						var imageExist = false; 
+
+						var url = "";
+						var course = "";
+						var imageData = "";
+						
+						if( !(element.url === undefined) ) {
+							urlExist = true;
+							url = element.url;
+						}
+
+						if( !(element.course === undefined) ) {
+							courseExist = true;
+							course = element.course;
+						}
+
+						if( !(element.images.data === undefined) ) {
+							imageExist = true;
+
+							// need to decode image as base64 so html can read it
+							imageData = element.images.data.toString('base64');
+						}
+
 						var elementString = {
 							"_id": element._id,
 							"createdAt": element.createdAt.toString().substring(4,15),
@@ -66,7 +91,14 @@ router.get('/homepage', function(req, res, next) {
 							"createdByID": element.createdByID,
 							"roles": element.roles.join(', '),
 							"notowned": notowned,
-							"post-border": border
+							"post-border": border,
+							"url-exist": urlExist,
+							"url": url,
+							"course-exist": courseExist,
+							"course": course,
+							"image-exist": imageExist,
+							"image-contentType": element.images.contentType,
+							"image-data": imageData
 						};
 						pMap["projects"].push(elementString);
 
@@ -114,25 +146,6 @@ router.post('/homepage', function(req, res, next) {
 	// set the created by property to be current user
 	req.body.createdBy = req.session.user.fname + " " + req.session.user.lname;
 	req.body.createdByID = req.session.user._id;
-	
-	if( !(req.files.images === undefined)) {
-
-		// get the temporary location of the file
-	    var tmp_path = req.files.images.path;
-	    // set where the file should actually exists - in this case it is in the "images" directory
-	    var target_path = './public/images/' + req.files.images.name;
-	    // move the file from the temporary location to the intended location
-	    fs.rename(tmp_path, target_path, function(err) {
-	        if (err) throw err;
-	        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-	        fs.unlink(tmp_path, function() {
-	            if (err) throw err;
-	        });
-	    });
-
-	    console.log('File uploaded to: ' + target_path + ' - ' + req.files.images.size + ' bytes');
-	}
-	
 
 	if (typeof req.body.roles === "string") {
 		req.body.roles = [req.body.roles];
@@ -142,6 +155,19 @@ router.post('/homepage', function(req, res, next) {
 	}
 
 	var newProject = new Project(req.body);
+
+	if(!(req.files.images === undefined)) {
+		var tmp_path = req.files.images.path;
+	
+		newProject.images.data = fs.readFileSync(tmp_path);
+		newProject.images.contentType = req.files.images.mimetype;
+	
+
+		// delete the temporary file
+    	fs.unlink(tmp_path, function(err) {
+        	if (err) throw err;
+    	});
+	}
 
 	newProject.save(function(err) {
 
