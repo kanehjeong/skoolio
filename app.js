@@ -13,7 +13,6 @@ var multer = require('multer');
 // Declare all routes here
 var routes = require('./routes/index');
 var profile = require('./routes/profile');
-var editprofile = require('./routes/editprofile');
 var user_projects = require('./routes/user_projects');
 var interested = require('./routes/interested');
 var homepage = require('./routes/homepage');
@@ -68,7 +67,6 @@ app.use(session({
 // Apply all routes 
 app.use('/', routes);
 app.use('/', profile);
-app.use('/', editprofile);
 app.use('/', interested);
 app.use('/', homepage);
 app.use('/', signup);

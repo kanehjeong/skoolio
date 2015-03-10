@@ -14,30 +14,31 @@
 	</head>
 	<body>
 		{{> navbar}}
+		{{> edit_profile_modal}}
 		<div class="container">
 			<div class="row">
 				<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-					<form>
-						<button id="edit-profile-button" class="btn btn-small btn-success" type="submit" formmethod="get" formaction="editprofile"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
-					</form>
+					<button type="button" id="edit-profile-button" class="btn btn-info btn-circle text-uppercase interested-obj edit-profile" data-toggle="modal" data-target="#editProfileModal"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
 					<div class="well profile">
 						<div class="col-sm-12">
-							
-							<div class="col-xs-12 col-sm-8">
-								<h2 id="profile-title">Person</h2>
-								<!--<p><strong>About: </strong> Web Designer / UI. </p>-->
-								<p><strong>Bio: </strong> I am currently a student at UCSD. </p>
-								<p><strong>Skills: </strong>
-								<span class="tags">html5</span>
-								<span class="tags">css3</span>
-								<span class="tags">jquery</span>
-								<span class="tags">bootstrap3</span>
-								</p>
-							</div>
 							<div class="col-xs-12 col-sm-4 text-center">
+								<!--<h2 id="profile-title">Person</h2>-->
 								<figure>
 									<img src="/images/default-user-icon-profile.png" alt="" class="img-circle img-responsive">
 								</figure>
+							</div>
+
+							<div class="col-xs-12 col-sm-8">
+								<!--<p><strong>About: </strong> Web Designer / UI. </p>-->
+								<br />
+								<p>
+									<strong>Skills: </strong>
+									<span class="tags">html5</span>
+									<span class="tags">css3</span>
+									<span class="tags">jquery</span>
+									<span class="tags">bootstrap3</span>
+								</p>
+								<p><strong>Bio: </strong> I am currently a student at UCSD. </p>
 							</div>
 						</div>
 					</div>
@@ -46,6 +47,6 @@
 		</div>
 	</body>
 	<script src="/js/jquery-2.1.3.js"></script>
-	<script src="/js/index.js"></script>
 	<script src="/js/bootstrap.js"></script>
+	<script src="/js/profile.js"></script>
 </html>
