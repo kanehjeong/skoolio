@@ -52,6 +52,15 @@ router.get('/notifications', function(req, res, next) {
 
 						User.findById(element.fromID, function(err, fromUser) {
 
+							var imageExists = false;
+							var imageData = "";
+							var imageContentType = "";
+							if(!(fromUser.image.data === undefined)) {
+								imageExists = true;
+								imageData = fromUser.image.data.toString('base64');
+								imageContentType = fromUser.image.contentType;
+							}
+
 							var elementString = {
 								"_id": element._id,
 								"fromID": element.fromID,
@@ -61,6 +70,9 @@ router.get('/notifications', function(req, res, next) {
 								"createdAt": element.createdAt.toString().substring(4,15),
 								"project": element.project,
 								"projectID": element.projectID,
+								"image-exists": imageExists,
+								"image-data": imageData,
+								"image-contentType": imageContentType,
 								"roles": element.roles.join(', '),
 								"message": element.message,
 								"fromBio": fromUser.bio,
@@ -76,7 +88,7 @@ router.get('/notifications', function(req, res, next) {
 					});
 
 					// Should only get here if no notifications....
-					res.render('notifications');
+					//res.render('notifications');
 				});
 			}	
 	    });

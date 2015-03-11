@@ -90,6 +90,7 @@ router.get('/homepage', function(req, res, next) {
 							"createdBy": element.createdBy,
 							"createdByID": element.createdByID,
 							"roles": element.roles.join(', '),
+							"actual-roles": element.roles,
 							"notowned": notowned,
 							"post-border": border,
 							"url-exist": urlExist,

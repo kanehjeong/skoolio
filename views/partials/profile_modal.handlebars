@@ -9,7 +9,7 @@
 			</div>
 			<div class="modal-body">
 
-				<img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" border="0" class="img-circle"></img>
+				<img src="data:{{image-contentType}};base64,{{image-data}}" class="img-responsive" onerror="if (this.src != '/images/default-user-icon-profile.png') this.src = '/images/default-user-icon-profile.png';" name="aboutme" width="140" height="140" border="0" class="img-circle"></img>
 				<h3 class="media-heading">{{from}} <small>USA</small></h3>
 				<span><strong>Skills: </strong></span>
 				{{#each fromSkills}}<span class="label label-warning">{{this}}</span>{{/each}}

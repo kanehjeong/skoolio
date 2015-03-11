@@ -1,0 +1,40 @@
+<!-- MODAL POST PROJECT START -->
+<div class="modal fade" id="interestedModal{{_id}}" tabindex="-1" role="dialog" aria-labelledby="interestedModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="interestedModalLabel">Notify the Owner of <strong>{{title}}!</strong></h4>
+            </div>
+            <form action="interested/{{_id}}" method="post" class="form-horizontal" role="form">
+                <div class="modal-body">
+
+                    <div>
+                        <h3>What role(s) are you interested in?</h3>
+                        <div id="check-at-least-one"></div>
+                        {{#each actual-roles}}
+                        <input type="checkbox" name="roles" value="{{this}}"> {{this}}
+                        <br />
+                        {{/each}}
+                    </div>
+                    
+                    <div>
+                        <h3>Anything you want to say?</h3>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <textarea id="interested-message" class="form-control counted" name="message" placeholder="Type in your message" rows="4" maxlength="200"></textarea>
+                                <h6 class="pull-right"><span id="char_remaining">200</span> Characters Remaining</h6>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="submitProject" class="btn btn-primary" type="submit" formmethod="post">Notify</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> <!-- MODAL POST PROJECT END -->

@@ -75,6 +75,7 @@
                         {{#each projects}}
                         <!-- Project Posts -->
                         
+                        {{> interested_modal}}
                         <li class="media">
                            
                             <div class="media-body">
@@ -123,7 +124,8 @@
                                         <a href="#project-detail{{_id}}" class="btn btn-info btn-circle text-uppercase details-button" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Details</a>
 
                                     {{#if notowned}}
-                                        <a href="/interested/{{_id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Hit Me Up</a>
+                                        <!--<a href="/interested/{{_id}}" id="interested{{id}}" class="btn btn-info btn-circle text-uppercase interested-obj"><span class="glyphicon glyphicon-ok"></span> Hit Me Up</a>-->
+                                        <button type="button" id="hit-me-up-button" class="btn btn-info btn-circle text-uppercase" data-toggle="modal" data-target="#interestedModal{{_id}}"> Hit Me Up</button>
                                     {{/if}}
                                     <div>
                                 </div>
