@@ -86,9 +86,19 @@ router.get('/notifications', function(req, res, next) {
 							}
 						});
 					});
+					
+					console.log(notifications);
+					// Should only get here if no notifications
+					if(notifications.length === 0) {
 
-					// Should only get here if no notifications....
-					//res.render('notifications');
+						var homepageLink = "<a href='/homepage'>homepage</a>";
+
+						var noNotificationObj = {
+							"empty": true,								
+						};
+
+						res.render('notifications', noNotificationObj);
+					}
 				});
 			}	
 	    });
@@ -97,6 +107,19 @@ router.get('/notifications', function(req, res, next) {
 	    res.redirect('/');
 	}
 });
+
+router.post('/notifications/:id/delete', function(req, res, next) {
+	var notificationID = req.params.id;
+
+	Notification.findOne({ "_id": notificationID }).remove().exec( function(err) {
+		if(err) {
+			console.log(err);
+		}
+
+		res.redirect('../../notifications');
+	});
+});
+
 
 
 module.exports = router;

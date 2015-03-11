@@ -2,6 +2,10 @@ body .container {
 	padding-top: 50px
 }
 
+.page-header {
+	text-align: center;
+}
+
 .notification-post {
     position: relative;
     width: 100%;

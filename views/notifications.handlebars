@@ -31,6 +31,11 @@
                     <div class="tabs">
                         <div class="tab-content">
 
+                            <!-- Show this if there are no notifications -->
+                            {{#if empty}}
+                                <h1>You currently have no notifications! Post a project idea in the <a href="/homepage">homepage</a> and people may notify you if they are interested here.</h1>
+                            {{/if}}
+
                             <!-- Message Tab -->
                             <div id="all-projects" class="tab-pane active">
                                 <ul class="media-list">
@@ -60,7 +65,9 @@
                                                 </div>
 
                                                 <div id="buttons-block">
-                                                    <a href="#project-detail{{_id}}" class="btn btn-info btn-circle text-uppercase btn-danger" data-toggle="collapse"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+                                                    <form>
+                                                        <button type="submit" formaction="notifications/{{_id}}/delete" formmethod="post" class="btn btn-info btn-circle text-uppercase btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+                                                    </form>
                                                 <div>
 
                                             </div>
