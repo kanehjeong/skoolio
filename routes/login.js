@@ -25,13 +25,6 @@ router.post('/login', function(req, res, next) {
             // delete the password from the session for security
             delete req.user.password; 
             
-            //woopra.identify({
-                //email: req.session.user.email,
-                //name: req.session.user.fname + " " + req.session.user.lname
-            //});
-
-            //woopra.track();
-
             res.redirect('/homepage');
             return;
         }

@@ -10,7 +10,7 @@ var db = mongoose.connection;
 
 /* GET */
 router.get('/homepage', function(req, res, next) {
-
+	
 	// Check if session exists
 	if (req.session && req.session.user) {
 	    

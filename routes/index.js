@@ -14,6 +14,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 /* GET */
 router.get('/', function(req, res, next) {
+
+	if(req.session !== undefined) {
+		req.session.reset();
+	}
 	res.render('index');
 });
 
