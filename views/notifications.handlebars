@@ -42,7 +42,7 @@
                                        
                                         <div class="media-body">
                                          
-                                            <div class="well well-lg project-post {{post-border}}">
+                                            <div class="well well-lg notification-post {{post-border}}">
                                                 <h6 class="post-time">{{createdAt}}</h6>
 
                                                 <h4 class="project-title">{{project}}</h4>
@@ -59,8 +59,8 @@
                                                     <label>Message:</label> {{message}}
                                                 </div>
 
-                                                <div id="details-hitmeup-block">
-                                                    <a href="#project-detail{{_id}}" class="btn btn-info btn-circle text-uppercase details-button" data-toggle="collapse"><span class="glyphicon glyphicon-share-alt"></span> Delete</a>
+                                                <div id="buttons-block">
+                                                    <a href="#project-detail{{_id}}" class="btn btn-info btn-circle text-uppercase btn-danger" data-toggle="collapse"><span class="glyphicon glyphicon-remove"></span> Delete</a>
                                                 <div>
 
                                             </div>
@@ -76,6 +76,6 @@
         </div>
     </body>
     <script src="/js/jquery-2.1.3.js"></script>
-    <script src="/js/notifications.js"></script>
     <script src="/js/bootstrap.js"></script>
+    <script src="/js/notifications.js"></script>
 </html>

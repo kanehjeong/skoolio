@@ -1,3 +1,22 @@
 body .container {
 	padding-top: 50px
 }
+
+.notification-post {
+    position: relative;
+    width: 100%;
+}
+
+.post-time {
+	position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.project-title {
+	text-align: center;
+}
+
+#buttons-block{
+	text-align: center;
+}
