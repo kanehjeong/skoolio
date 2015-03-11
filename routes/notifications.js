@@ -74,6 +74,9 @@ router.get('/notifications', function(req, res, next) {
 							}
 						});
 					});
+
+					// Should only get here if no notifications....
+					res.render('notifications');
 				});
 			}	
 	    });

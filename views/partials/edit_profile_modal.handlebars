@@ -7,14 +7,14 @@
                 <h4 class="modal-title" id="editProfileModalLabel">Update Your Profile</h4>
             </div>
 
-            <form action="profile/{{_id}}/edit" method="post" class="form-horizontal">
+            <form action="profile/user{{_id}}/edit" method="post" class="form-horizontal" enctype="multipart/form-data">
                 <div class="modal-body">
                     
                     <div class="form-group">
                         <label for="roles" class="col-sm-2 control-label">Your Skills</label>
                         <div class="col-sm-10">
                             <div id="edit-skill-form" class="input-group">
-                                {{#each skillsArr}}
+                                {{#each skills}}
                                     <input type="text" class="form-control" name="skills" value="{{this}}">
                                     </br>
                                 {{/each}}
