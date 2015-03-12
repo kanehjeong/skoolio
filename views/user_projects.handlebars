@@ -25,6 +25,12 @@
                     <div class="comment-tabs">
                         
                         <div class="tab-content">
+
+                            <!-- Show this if there are no notifications -->
+                            {{#if empty}}
+                                <p><h2>You currently have no projects!</h2></p> <p><h3>Post a project idea in the <a href="/homepage">homepage</a> and manage them here.</h3></p>
+                            {{/if}}
+
                             <!-- Projects Tab -->
                             <div class="tab-pane active" id="comments-logout">
                                 <ul class="media-list">
