@@ -6,9 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="shortcut icon" href="/images/favicon.jpg">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+        <link rel="stylesheet" type="text/css" href="/css/background.css">
         <link rel="stylesheet" type="text/css" href="/css/notifications.css">
         {{> woopra_tracking_script}}
         {{> woopra_tracking_user_script}}
@@ -33,7 +34,7 @@
 
                             <!-- Show this if there are no notifications -->
                             {{#if empty}}
-                                <h1>You currently have no notifications! Post a project idea in the <a href="/homepage">homepage</a> and people may notify you if they are interested here.</h1>
+                                <p><h2>You currently have no notifications!</h2></p> <p><h3>Post a project idea in the <a href="/homepage">homepage</a> and people may notify you if they are interested here.</h3></p>
                             {{/if}}
 
                             <!-- Message Tab -->
