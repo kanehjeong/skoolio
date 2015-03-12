@@ -54,6 +54,24 @@
                                                         <label>Description:</label> {{description}}
                                                     </div>
                                                     
+
+                                                    {{#if course-exist}}
+                                                        <p class="project-type">
+                                                            <label>Course:</label> {{course}}
+                                                        </p>
+                                                    {{/if}}
+
+                                                    {{#if url-exist}}
+                                                        <p class="project-type">
+                                                            <label>URL:</label> {{url}}
+                                                        </p>
+                                                    {{/if}}
+                                                        
+                                                    {{#if image-exist}}    
+                                                        <p class="project-image">
+                                                            <label>Image:</label><img src="data:{{image-contentType}};base64,{{image-data}}" class="img-responsive" />
+                                                        </p>
+                                                    {{/if}}
                                                     <!--</div>-->
                                                 </div>
                                                 <div id="details-edit-block">

@@ -56,6 +56,33 @@ router.get('/user_projects', function(req, res, next) {
 
 							projects.forEach(function(element, index, array) {
 
+								var urlExist = false;
+								var courseExist = false;
+								var imageExist = false; 
+
+								var url = "";
+								var course = "";
+								var imageData = "";
+								
+								if( !(element.url === undefined) ) {
+									urlExist = true;
+									url = element.url;
+								}
+
+								if( !(element.course === undefined) ) {
+									courseExist = true;
+									course = element.course;
+								}
+
+								if( !(element.images.data === undefined) ) {
+									imageExist = true;
+
+									// need to decode image as base64 so html can read it
+									imageData = element.images.data.toString('base64');
+								}
+
+
+
 								var isWebApp = element.type === "Web Application";
 								var isAndroidApp = element.type === "Android Application";
 								var isIphoneApp = element.type === "Iphone Application";
@@ -91,7 +118,15 @@ router.get('/user_projects', function(req, res, next) {
 									"theatre": isTheatre,
 									"film": isFilm,
 									"book": isBook,
-									"art": isArt
+									"art": isArt,
+
+									"url-exist": urlExist,
+									"url": url,
+									"course-exist": courseExist,
+									"course": course,
+									"image-exist": imageExist,
+									"image-contentType": element.images.contentType,
+									"image-data": imageData
 								};
 								pMap["projects"].push(elementString);
 
@@ -139,6 +174,26 @@ router.post('/user_projects/:id/edit', function(req, res, next) {
 		project.roles = req.body.roles;
 		project.description = req.body.description;
 		project.createdAt = new Date();
+
+		if(!(req.files.images === undefined)) {
+			var tmp_path = req.files.images.path;
+		
+			project.images.data = fs.readFileSync(tmp_path);
+			project.images.contentType = req.files.images.mimetype;
+		
+			// delete the temporary file
+	    	fs.unlink(tmp_path, function(err) {
+	        	if (err) throw err;
+	    	});
+		}
+
+		if(!(req.body.url === undefined)) {
+			project.url = req.body.url;
+		}
+
+		if(!(req.body.course === undefined)) {
+			project.course = req.body.course;
+		}
 
 		project.save(function(err) {
 			if(err) {
