@@ -51,6 +51,7 @@ router.get('/notifications', function(req, res, next) {
 					notifications.forEach(function(element, index, array) {
 
 						User.findById(element.fromID, function(err, fromUser) {
+							var fromEmail = fromUser.email;
 
 							var imageExists = false;
 							var imageData = "";
@@ -67,6 +68,7 @@ router.get('/notifications', function(req, res, next) {
 								"toID": element.toID,
 								"from": element.from,
 								"to": element.to,
+								"fromEmail": fromEmail,
 								"createdAt": element.createdAt.toString().substring(4,15),
 								"project": element.project,
 								"projectID": element.projectID,
